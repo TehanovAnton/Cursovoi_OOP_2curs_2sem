@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Jb0NzDxZY3WfuaKc+JW95lrGlaeJ50Bzh/252ODmW4EJTxOwsZ31oaieQm9nnm86lQAS0JFeH2bq3N3qX9hI3w==",
+  "dgSpecHash": "GJHUHS0jSktbJ+qWOYbvokeYq3QoVf1f+QyTnDAiqp4X1weiVnpIKeMBF+xd71g3vOUuP9RwQ3HI0bdVqq8lVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Anton\\source\\repos\\pacei_NV_OOTP\\Курсовой ООП 2курс-2семестр\\KursovoiProectCSharp\\KursovoiProectCSharp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Anton\\.nuget\\packages\\trans.system.windows.interactivity\\3.0.40218.1\\trans.system.windows.interactivity.3.0.40218.1.nupkg.sha512"
+  ],
   "logs": []
 }

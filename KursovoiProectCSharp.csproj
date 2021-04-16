@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Trans.System.Windows.Interactivity" Version="3.0.40218.1" />
+  </ItemGroup>
+
 </Project>

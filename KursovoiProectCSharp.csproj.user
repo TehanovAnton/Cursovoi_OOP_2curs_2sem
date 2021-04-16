@@ -10,6 +10,9 @@
     <Compile Update="View\DeckListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\MenuMainPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\StartDeckLsitPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DeckListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MenuMainPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StartDeckLsitPage.xaml">

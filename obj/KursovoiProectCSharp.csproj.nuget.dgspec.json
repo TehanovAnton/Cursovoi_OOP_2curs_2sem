@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Trans.System.Windows.Interactivity": {
+              "target": "Package",
+              "version": "[3.0.40218.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

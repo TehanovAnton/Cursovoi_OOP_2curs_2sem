@@ -18,6 +18,7 @@ namespace KursovoiProectCSharp
 
         #region Deck actions
         private Page deckListPage;
+        private bool fixedDeckListPage;
         public Page DeckListPage
         {
             get { return deckListPage; }
@@ -37,6 +38,43 @@ namespace KursovoiProectCSharp
                         obj =>
                         {
                             DeckListPage = new View.DeckListPage();
+                        }
+                    );
+            }
+        }
+
+
+        private RelayCommand setStartDeckListPage;
+        public RelayCommand SetStartDeckListPage
+        {
+            get
+            {
+                return setDeckListPage ?? new RelayCommand(
+                        obj =>
+                        {
+                            DeckListPage = new View.StartDeckLsitPage();
+                        },
+                        (obj) => !fixedDeckListPage
+                    );
+            }
+        }
+
+
+        private RelayCommand fixDeckListPage;
+        public RelayCommand FixDeckListPage
+        {
+            get
+            {
+                return fixDeckListPage ?? new RelayCommand(
+                        obj =>
+                        {
+                            if (fixedDeckListPage)
+                            {
+                                DeckListPage = new View.StartDeckLsitPage();
+                                fixedDeckListPage = false;
+                            }
+                            else
+                                fixedDeckListPage = true;
                         }
                     );
             }
@@ -89,6 +127,7 @@ namespace KursovoiProectCSharp
         public MainWindowViewModel(Window win)
         {
             appWin = win;
+            fixedDeckListPage = false;
             DeckListPage = new View.StartDeckLsitPage(); ;
         }        
     }

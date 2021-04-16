@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:KursovoiProectCSharp">
+                    xmlns:local="clr-namespace:KursovoiProectCSharp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
 
     <ImageBrush x:Key="Assets" ImageSource="C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\BlueButton.jpg" Stretch="None"/>
 
