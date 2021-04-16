@@ -5,11 +5,9 @@ C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2с�
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\KursovoiProectCSharp.dll
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\KursovoiProectCSharp.pdb
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.csprojAssemblyReference.cache
-C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp_MarkupCompile.cache
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp_MarkupCompile.lref
-C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.g.resources
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.AssemblyInfoInputs.cache
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.AssemblyInfo.cs
@@ -17,3 +15,32 @@ C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2с�
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.dll
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.pdb
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.genruntimeconfig.cache
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\Resources\MainWindowResources.baml
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\KursovoiProectCSharp.exe
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\KursovoiProectCSharp.deps.json
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\KursovoiProectCSharp.runtimeconfig.json
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\KursovoiProectCSharp.runtimeconfig.dev.json
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\KursovoiProectCSharp.dll
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\KursovoiProectCSharp.pdb
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.csprojAssemblyReference.cache
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp_MarkupCompile.cache
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp_MarkupCompile.lref
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\Resources\MainWindowResources.baml
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.g.resources
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.AssemblyInfoInputs.cache
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.AssemblyInfo.cs
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.csproj.CoreCompileInputs.cache
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.dll
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.pdb
+C:\Users\Anton\OneDrive\Рабочий стол\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\KursovoiProectCSharp.genruntimeconfig.cache
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\DeckListPage.g.cs
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\StartDeckLsitPage.g.cs
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\DeckListPage.baml
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\StartDeckLsitPage.baml
