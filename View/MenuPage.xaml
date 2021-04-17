@@ -1,0 +1,33 @@
+﻿<Page x:Class="KursovoiProectCSharp.View.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KursovoiProectCSharp.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="500"
+      Title="MenuMainPanel">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Background="Gray">
+            <Button Background="Gray" Style="{DynamicResource CloseIcon}" Command="{Binding CloseMenu}">
+                <Image Width="30" Height="30" Source="{Binding RollUpIcon}"/>
+            </Button>
+            
+            <Button HorizontalContentAlignment="Center" Margin="4 4 4 4"
+                    Command="{Binding SetBroseDeckPage}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding FindIcon}" Height="30" Width="auto"/>
+                    <Label Content="Brose decks"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Background="White" Opacity="0.8"></StackPanel>
+    </Grid>
+</Page>

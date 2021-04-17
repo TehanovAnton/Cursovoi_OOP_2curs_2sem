@@ -4,13 +4,13 @@
 
     <ImageBrush x:Key="Assets" ImageSource="C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\BlueButton.jpg" Stretch="None"/>
 
-    <Style x:Key="MenuIconMainPanel" TargetType="Button">
+    <Style x:Key="MenuIcon" TargetType="Button">
         <Style.Setters>
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style.Setters>
     </Style>
 
-    <Style x:Key="CloseIconMainPanelClose" TargetType="Button">
+    <Style x:Key="CloseIcon" TargetType="Button">
         <Style.Setters>
             <Setter Property="HorizontalAlignment" Value="Right"/>
         </Style.Setters>

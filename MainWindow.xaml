@@ -5,52 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KursovoiProectCSharp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="500"
+        Title="MainWindow" Height="600" Width="500"
         WindowStyle="None" AllowsTransparency="True"
         Background="White" WindowStartupLocation="CenterScreen">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="7*"/>
-        </Grid.RowDefinitions>
+    <Grid Margin="9 9 9 9">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
 
-        <!--<Frame Content="{Binding MenuMainPanel}" NavigationUIVisibility="Hidden"/>-->
-        
-        <Grid Grid.Row="0">
-            <Border BorderBrush="Black" BorderThickness="5" Margin="2 2 2 2">
-                <Grid>
-                    <Button Style="{DynamicResource MenuIconMainPanel}">
+            <Grid Grid.Row="0">
+                <Border BorderBrush="Black" BorderThickness="5" Margin="2 2 2 2">
+                    <Grid>
+                        <Button Style="{DynamicResource MenuIcon}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding SetAppPage}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            
+                            <Image Source="{Binding MenuIcon}"/>
+                        </Button>
+
+                        <Button Style="{DynamicResource CloseIcon}" Command="{Binding CloseApp}">
+                            <Image Source="{Binding CloseIcon}"/>
+                        </Button>
                         
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="MouseEnter">
-                                <i:InvokeCommandAction Command="{Binding SetDeckListPage}"/>
-                            </i:EventTrigger>
+                        <Label Content="main panel" FontSize="30"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </Grid>
 
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding FixDeckListPage}"/>
-                            </i:EventTrigger>
-
-                            <i:EventTrigger EventName="MouseLeave">
-                                <i:InvokeCommandAction Command="{Binding SetStartDeckListPage}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-
-                        <Image Source="{Binding MenuIconMainPane}"/>
-                    </Button>
-
-                    <Button Style="{DynamicResource CloseIconMainPanelClose}" Command="{Binding CloseApp}">
-                        <Image Source="{Binding CloseIconMainPanel}"/>
-                    </Button>
-                    <Label Content="main panel" FontSize="40" HorizontalAlignment="Right" Margin="0,0,140,0"/>
-                </Grid>
-            </Border>
+            <Grid Grid.Row="1">
+                <Border BorderBrush="Black" BorderThickness="5" Margin="2 2 2 2">
+                    <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
+                </Border>
+            </Grid>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <Border BorderBrush="Black" BorderThickness="5" Margin="2 2 2 2">
-                <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
-            </Border>
+        <Grid>
+            <Frame Content="{Binding AppPage}" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>

@@ -11,16 +11,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KursovoiProectCSharp.View
+namespace KursovoiProectCSharp.ViewModel
 {
     /// <summary>
-    /// Логика взаимодействия для MenuMainPanel.xaml
+    /// Логика взаимодействия для BrowseDeckPage.xaml
     /// </summary>
-    public partial class MenuMainPanel : Page
+    public partial class BrowseDeckPage : Page
     {
-        public MenuMainPanel()
+        public BrowseDeckPage(MainWindowViewModel mainWinVM)
         {
             InitializeComponent();
+
+            DataContext = new BrowseDeckViewModel(mainWinVM);
         }
     }
 }

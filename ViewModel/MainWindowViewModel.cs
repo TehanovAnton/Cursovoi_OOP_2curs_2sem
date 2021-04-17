@@ -11,9 +11,50 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace KursovoiProectCSharp
 {
-    class MainWindowViewModel : NotifyPropertyChanged
+    public class MainWindowViewModel : NotifyPropertyChanged
     {
         private Window appWin { get; set; }
+
+        #region Menu actions
+        private Page appPage;
+        public Page AppPage
+        {
+            get { return appPage; }
+            set
+            {
+                appPage = value;
+                OnPropertyChanged("AppPage");
+            }
+        }
+         
+        private RelayCommand setAppPage;
+        public RelayCommand SetAppPage
+        {
+            get
+            {
+                return setAppPage ?? new RelayCommand(
+                        obj =>
+                        {
+                            AppPage = new View.MenuPage(this);
+                        }
+                    );
+            }
+        }
+
+        private RelayCommand removeAppPage;
+        public RelayCommand RemoveAppPage
+        {
+            get
+            {
+                return removeAppPage ?? new RelayCommand(
+                        obj =>
+                        {
+                            AppPage = null;
+                        }
+                    );
+            }
+        }
+        #endregion
 
 
         #region Deck actions
@@ -100,7 +141,7 @@ namespace KursovoiProectCSharp
 
 
         #region ImageBMP
-        private BitmapImage ImageBMP(string imgPath)
+        public static BitmapImage ImageBMP(string imgPath)
         {
             BitmapImage logo = new BitmapImage();
             logo.BeginInit();
@@ -108,17 +149,17 @@ namespace KursovoiProectCSharp
             logo.EndInit();
             return logo;
         }
-        public BitmapImage MenuIconMainPane
+        public BitmapImage MenuIcon
         {
             get {               
-                return ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\MenuIconMainPanel.png");
+                return ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\MenuIcon.png");
             }
         }
-        public BitmapImage CloseIconMainPanel
+        public BitmapImage CloseIcon
         {
             get
             {
-                return ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\CloseIconMainPanel.png");
+                return ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\CloseIcon.png");
             }
         }
         #endregion
@@ -128,7 +169,7 @@ namespace KursovoiProectCSharp
         {
             appWin = win;
             fixedDeckListPage = false;
-            DeckListPage = new View.StartDeckLsitPage(); ;
+            DeckListPage = new View.DeckListPage();
         }        
     }
 }

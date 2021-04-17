@@ -7,10 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\BrowseDeckPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\DeckListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\MenuMainPanel.xaml.cs">
+    <Compile Update="View\MenuPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\StartDeckLsitPage.xaml.cs">
@@ -21,10 +24,13 @@
     <Page Update="Resources\MainWindowResources.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\BrowseDeckPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\DeckListPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\MenuMainPanel.xaml">
+    <Page Update="View\MenuPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StartDeckLsitPage.xaml">
