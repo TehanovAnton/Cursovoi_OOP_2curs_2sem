@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -13,10 +14,14 @@ namespace KursovoiProectCSharp
 {
     public class MainWindowViewModel : NotifyPropertyChanged
     {
-        private Window appWin { get; set; }
+        public static Window appWin { get; set; }
 
-        #region Menu actions
+        private bool fixedDeckListPage;
+
+        #region Pages
         private Page appPage;
+        private Page deckListPage;
+
         public Page AppPage
         {
             get { return appPage; }
@@ -26,8 +31,25 @@ namespace KursovoiProectCSharp
                 OnPropertyChanged("AppPage");
             }
         }
-         
+        public Page DeckListPage
+        {
+            get { return deckListPage; }
+            set
+            {
+                deckListPage = value;
+                OnPropertyChanged("DeckListPage");
+            }
+        }
+        #endregion
+
+        #region Commands
         private RelayCommand setAppPage;
+        private RelayCommand removeAppPage;
+        private RelayCommand setDeckListPage;
+        private RelayCommand setStartDeckListPage;
+        private RelayCommand fixDeckListPage;
+        private RelayCommand closeApp;
+
         public RelayCommand SetAppPage
         {
             get
@@ -40,8 +62,6 @@ namespace KursovoiProectCSharp
                     );
             }
         }
-
-        private RelayCommand removeAppPage;
         public RelayCommand RemoveAppPage
         {
             get
@@ -54,23 +74,6 @@ namespace KursovoiProectCSharp
                     );
             }
         }
-        #endregion
-
-
-        #region Deck actions
-        private Page deckListPage;
-        private bool fixedDeckListPage;
-        public Page DeckListPage
-        {
-            get { return deckListPage; }
-            set
-            {
-                deckListPage = value;
-                OnPropertyChanged("DeckListPage");
-            }
-        }
-
-        private RelayCommand setDeckListPage;
         public RelayCommand SetDeckListPage
         {
             get
@@ -78,14 +81,11 @@ namespace KursovoiProectCSharp
                 return setDeckListPage ?? new RelayCommand(
                         obj =>
                         {
-                            DeckListPage = new View.DeckListPage();
+                            DeckListPage = new View.DeckListPage(this);
                         }
                     );
             }
         }
-
-
-        private RelayCommand setStartDeckListPage;
         public RelayCommand SetStartDeckListPage
         {
             get
@@ -99,9 +99,6 @@ namespace KursovoiProectCSharp
                     );
             }
         }
-
-
-        private RelayCommand fixDeckListPage;
         public RelayCommand FixDeckListPage
         {
             get
@@ -120,11 +117,6 @@ namespace KursovoiProectCSharp
                     );
             }
         }
-        #endregion
-
-
-        #region CloseApp
-        private RelayCommand closeApp;
         public RelayCommand CloseApp
         {
             get
@@ -140,6 +132,12 @@ namespace KursovoiProectCSharp
         #endregion
 
 
+        public MainWindowViewModel()
+        {
+            fixedDeckListPage = false;
+            DeckListPage = new View.DeckListPage(this);
+        }
+
         #region ImageBMP
         public static BitmapImage ImageBMP(string imgPath)
         {
@@ -149,9 +147,11 @@ namespace KursovoiProectCSharp
             logo.EndInit();
             return logo;
         }
+
         public BitmapImage MenuIcon
         {
-            get {               
+            get
+            {
                 return ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\MenuIcon.png");
             }
         }
@@ -163,13 +163,5 @@ namespace KursovoiProectCSharp
             }
         }
         #endregion
-
-
-        public MainWindowViewModel(Window win)
-        {
-            appWin = win;
-            fixedDeckListPage = false;
-            DeckListPage = new View.DeckListPage();
-        }        
     }
 }

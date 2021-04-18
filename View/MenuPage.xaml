@@ -23,7 +23,7 @@
                     Command="{Binding SetBroseDeckPage}">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="{Binding FindIcon}" Height="30" Width="auto"/>
-                    <Label Content="Brose decks"/>
+                    <Label Content="Browse decks"/>
                 </StackPanel>
             </Button>
         </StackPanel>

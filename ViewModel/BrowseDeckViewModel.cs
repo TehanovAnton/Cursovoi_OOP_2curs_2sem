@@ -46,7 +46,7 @@ namespace KursovoiProectCSharp.ViewModel
 
         public BrowseDeckViewModel(MainWindowViewModel mainWinVM)
         {
-            DeckListPage = new View.DeckListPage();
+            DeckListPage = new View.DeckListPage(mainWinVM);
             this.mainWinVM = mainWinVM;
         }
     }

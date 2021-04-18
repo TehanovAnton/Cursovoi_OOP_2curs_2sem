@@ -21,7 +21,8 @@ namespace KursovoiProectCSharp
         {
             InitializeComponent();
 
-            DataContext = new MainWindowViewModel(this);
+            MainWindowViewModel.appWin = this;
+            DataContext = new MainWindowViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

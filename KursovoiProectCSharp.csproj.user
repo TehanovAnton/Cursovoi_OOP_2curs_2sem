@@ -19,6 +19,9 @@
     <Compile Update="View\StartDeckLsitPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\TrainingCardPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Resources\MainWindowResources.xaml">
@@ -34,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StartDeckLsitPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\TrainingCardPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

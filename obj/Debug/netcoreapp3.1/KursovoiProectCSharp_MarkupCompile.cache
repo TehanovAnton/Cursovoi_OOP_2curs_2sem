@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\App.xaml
-6-710541771
+7-1634833548
 
-15-1373831127
+16-1875145684
 193-1559510214
-MainWindow.xaml;Resources\MainWindowResources.xaml;View\BrowseDeckPage.xaml;View\DeckListPage.xaml;View\MenuPage.xaml;View\StartDeckLsitPage.xaml;
+MainWindow.xaml;Resources\MainWindowResources.xaml;View\BrowseDeckPage.xaml;View\DeckListPage.xaml;View\MenuPage.xaml;View\StartDeckLsitPage.xaml;View\TrainingCardPage.xaml;
 
 False
 

@@ -14,15 +14,13 @@ using System.Windows.Shapes;
 namespace KursovoiProectCSharp.View
 {
     /// <summary>
-    /// Логика взаимодействия для DeckListPage.xaml
+    /// Логика взаимодействия для TrainingCardPage.xaml
     /// </summary>
-    public partial class DeckListPage : Page
+    public partial class TrainingCardPage : Page
     {
-        public DeckListPage(MainWindowViewModel mainWinVM)
+        public TrainingCardPage()
         {
             InitializeComponent();
-
-            DataContext = new DeckListViewModel(mainWinVM);
         }
     }
 }

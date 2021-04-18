@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <Border BorderBrush="Black" BorderThickness="5" Margin="2 2 2 2">
+                <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
                     <Grid>
                         <Button Style="{DynamicResource MenuIcon}">
                             <i:Interaction.Triggers>
@@ -40,7 +40,7 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <Border BorderBrush="Black" BorderThickness="5" Margin="2 2 2 2">
+                <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
                     <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
                 </Border>
             </Grid>
