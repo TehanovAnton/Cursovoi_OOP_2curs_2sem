@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CustomControls\MainPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddCardPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\BrowseDeckPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,7 +30,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CustomControls\MainPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddCardPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\BrowseDeckPage.xaml">

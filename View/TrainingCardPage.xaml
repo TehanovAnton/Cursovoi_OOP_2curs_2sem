@@ -18,7 +18,7 @@
 
         <!--question-->
         <Border BorderBrush="Black" BorderThickness="0 0 0 5" Grid.Row="0" Margin="10 10 10 10">
-            <TextBlock TextAlignment="Center" FontSize="20" Text="quastion" Width="500"/>
+            <TextBlock Text="{Binding Card}" TextAlignment="Center" FontSize="20" Width="500"/>
         </Border>
 
         <!--answer-->
@@ -35,15 +35,18 @@
             </Grid.ColumnDefinitions>
             
             <Grid Grid.Column="0">
-                <Button Content="Bad" Margin="10 10 10 10"/>
+                <Button Content="Bad" Margin="10 10 10 10"
+                        Command="{Binding BadRemembered}"/>
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Content="Normal" Margin="10 10 10 10"/>
+                <Button Content="Normal" Margin="10 10 10 10"
+                        Command="{Binding NormalRemembered}"/>
             </Grid>
 
             <Grid Grid.Column="2">
-                <Button Content="Exelent" Margin="10 10 10 10"/>
+                <Button Content="Exelent" Margin="10 10 10 10"
+                        Command="{Binding ExelentRemembered}"/>
             </Grid>
         </Grid>
     </Grid>

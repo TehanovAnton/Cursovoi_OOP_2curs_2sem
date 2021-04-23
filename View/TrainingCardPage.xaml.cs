@@ -18,9 +18,11 @@ namespace KursovoiProectCSharp.View
     /// </summary>
     public partial class TrainingCardPage : Page
     {
-        public TrainingCardPage()
+        public TrainingCardPage(Model.Deck deck, MainWindowViewModel mainWinVM)
         {
             InitializeComponent();
+
+            DataContext = new ViewModel.TrainingCardViewModel(deck, mainWinVM);
         }
     }
 }

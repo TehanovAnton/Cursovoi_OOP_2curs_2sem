@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KursovoiProectCSharp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:KursovoiProectCSharp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:uc="clr-namespace:KursovoiProectCSharp.CustomControls" d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="500"
         WindowStyle="None" AllowsTransparency="True"
@@ -17,32 +17,17 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
-                    <Grid>
-                        <Button Style="{DynamicResource MenuIcon}">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Click">
-                                    <i:InvokeCommandAction Command="{Binding SetAppPage}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                            
-                            <Image Source="{Binding MenuIcon}"/>
-                        </Button>
-
-                        <Button Style="{DynamicResource CloseIcon}" Command="{Binding CloseApp}">
-                            <Image Source="{Binding CloseIcon}"/>
-                        </Button>
-                        
-                        <Label Content="main panel" FontSize="30"
-                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Grid>
-                </Border>
+                <uc:MainPanel Title="{Binding Title}" CloseIcon="{Binding CloseIcon}"/>
             </Grid>
 
             <Grid Grid.Row="1">
-                <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
-                    <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
-                </Border>
+                <StackPanel>
+                    <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
+                        <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
+                    </Border>
+
+                    <Button Content="AddCard" Command="{Binding AddCardPage}"/>
+                </StackPanel>
             </Grid>
         </Grid>
 

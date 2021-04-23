@@ -22,6 +22,7 @@ namespace KursovoiProectCSharp
         private Page appPage;
         private Page deckListPage;
 
+
         public Page AppPage
         {
             get { return appPage; }
@@ -49,7 +50,19 @@ namespace KursovoiProectCSharp
         private RelayCommand setStartDeckListPage;
         private RelayCommand fixDeckListPage;
         private RelayCommand closeApp;
+        private RelayCommand addCardPage;
 
+        public RelayCommand AddCardPage
+        {
+            get {
+                return addCardPage ?? new RelayCommand(
+                  obj =>
+                  {
+                      AppPage = new View.AddCardPage();
+                  }
+              );
+            }
+        }
         public RelayCommand SetAppPage
         {
             get
@@ -132,11 +145,18 @@ namespace KursovoiProectCSharp
         #endregion
 
 
+        public string Title
+        {
+            get { return "Main Panel"; }
+        }
+
+
         public MainWindowViewModel()
         {
             fixedDeckListPage = false;
             DeckListPage = new View.DeckListPage(this);
         }
+
 
         #region ImageBMP
         public static BitmapImage ImageBMP(string imgPath)
@@ -147,7 +167,6 @@ namespace KursovoiProectCSharp
             logo.EndInit();
             return logo;
         }
-
         public BitmapImage MenuIcon
         {
             get

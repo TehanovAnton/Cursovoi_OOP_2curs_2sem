@@ -29,20 +29,7 @@ namespace KursovoiProectCSharp.ViewModel
                 return MainWindowViewModel.ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\RollUpMenu.png");
             }
         }
-
-
-        //private RelayCommand rollUp;
-        //public RelayCommand RollUp
-        //{
-        //    get {
-        //        return rollUp ?? new RelayCommand(
-        //            obj =>
-        //            {
-        //                mainWinVM.AppPage = 
-        //            }
-        //      );
-        //    }
-        //}
+   
 
         public BrowseDeckViewModel(MainWindowViewModel mainWinVM)
         {

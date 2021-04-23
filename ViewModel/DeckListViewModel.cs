@@ -39,7 +39,7 @@ namespace KursovoiProectCSharp.View
                 return goCardTraining ?? new RelayCommand(
                   obj =>
                   {
-                      mainWinVM.AppPage = new View.TrainingCardPage();
+                      mainWinVM.AppPage = new View.TrainingCardPage(SelectedDeck, mainWinVM);
                   }
               );
             }
