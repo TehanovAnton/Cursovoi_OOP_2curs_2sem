@@ -26,13 +26,13 @@
                         <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
                     </Border>
 
-                    <Button Content="AddCard" Command="{Binding AddCardPage}"/>
+                    <Button Content="AddCard" Click="AddCard_Click"/>
                 </StackPanel>
             </Grid>
         </Grid>
 
         <Grid>
-            <Frame Content="{Binding AppPage}" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="appPage" Content="{Binding AppPage}" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>

@@ -11,29 +11,47 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.25*"/>
         </Grid.RowDefinitions>
 
+        <!--end-->
+        <Grid Grid.Row="0">
+            <StackPanel Grid.Column="0" Background="Gray">
+                <Button Background="Gray" Style="{DynamicResource CloseIcon}" Command="{Binding CloseMenu}">
+                    <Image Width="30" Height="30" Source="{Binding RollUpIcon}"/>
+                </Button>
+
+                <Button Content="end" HorizontalAlignment="Left"
+                        FontSize="20" Margin="434,0,0,0"
+                        Command="{Binding EndTraining}" />
+            </StackPanel>
+        </Grid>
+
         <!--question-->
-        <Border BorderBrush="Black" BorderThickness="0 0 0 5" Grid.Row="0" Margin="10 10 10 10">
-            <TextBlock Text="{Binding Card}" TextAlignment="Center" FontSize="20" Width="500"/>
+        <Border BorderBrush="Black" BorderThickness="0 0 0 5"
+                Grid.Row="1" Margin="10 10 10 10">
+            <TextBlock Text="{Binding Card}" Margin="0,10,0,5" 
+                       TextAlignment="Center" FontSize="20"/>
         </Border>
 
         <!--answer-->
-        <Border BorderBrush="Black" BorderThickness="0 0 0 5" Grid.Row="1" Margin="10 10 10 10">
-            <TextBlock Grid.Row="1" TextAlignment="Center" FontSize="20" Text="answer" Width="500" />
+        <Border BorderBrush="Black" BorderThickness="0 0 0 5" 
+                Grid.Row="2" Margin="10 10 10 10">
+            <TextBlock Grid.Row="1" TextAlignment="Center" FontSize="20" 
+                       Text="answer" />
         </Border>
 
         <!--result buttons-->
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Grid Grid.Column="0">
                 <Button Content="Bad" Margin="10 10 10 10"
                         Command="{Binding BadRemembered}"/>
@@ -48,6 +66,7 @@
                 <Button Content="Exelent" Margin="10 10 10 10"
                         Command="{Binding ExelentRemembered}"/>
             </Grid>
+
         </Grid>
     </Grid>
 </Page>

@@ -20,13 +20,13 @@
 
         <StackPanel Grid.Row="0" DataContext="{StaticResource def}">
             <Label Content="Question"/>
-            <TextBox x:Name="questionText" Text="{Binding QuestionText}" Margin="5 5 5 5"/>
+            <TextBox x:Name="questionText" Text="{Binding QuestionText}"
+                     Margin="5 5 5 5"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
             <Label Content="Answer"/>
-            <TextBox  Grid.Row="1" Margin="5 5 5 5">
-            </TextBox>
+            <TextBox  Grid.Row="1" Margin="5 5 5 5"/>
         </StackPanel>
     </Grid>
 </Page>

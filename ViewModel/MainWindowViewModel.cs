@@ -50,19 +50,7 @@ namespace KursovoiProectCSharp
         private RelayCommand setStartDeckListPage;
         private RelayCommand fixDeckListPage;
         private RelayCommand closeApp;
-        private RelayCommand addCardPage;
-
-        public RelayCommand AddCardPage
-        {
-            get {
-                return addCardPage ?? new RelayCommand(
-                  obj =>
-                  {
-                      AppPage = new View.AddCardPage();
-                  }
-              );
-            }
-        }
+       
         public RelayCommand SetAppPage
         {
             get
@@ -149,7 +137,7 @@ namespace KursovoiProectCSharp
         {
             get { return "Main Panel"; }
         }
-
+        
 
         public MainWindowViewModel()
         {

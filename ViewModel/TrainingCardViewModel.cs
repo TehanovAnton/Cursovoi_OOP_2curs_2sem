@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace KursovoiProectCSharp.ViewModel
 {
@@ -8,7 +9,7 @@ namespace KursovoiProectCSharp.ViewModel
     {
         private enum Remembered
         {
-            Bad, Normal, Exelent
+            Bad, Normal, Exelent, Terminate
         }
 
         private MainWindowViewModel mainWinVM;
@@ -40,17 +41,31 @@ namespace KursovoiProectCSharp.ViewModel
         }
 
 
+        private RelayCommand endTraining;
         private RelayCommand badRemembered;
         private RelayCommand normalRemembered;
         private RelayCommand exelentRemembered;
 
+
+        public RelayCommand EndTraining
+        {
+            get
+            {
+                return endTraining ?? new RelayCommand(
+                  obj =>
+                  {
+                      ProcessingRememberingResult();
+                  }
+              );
+            }
+        }
         public RelayCommand BadRemembered
         {
             get {
                 return badRemembered ?? new RelayCommand(
                   obj =>
                   {
-                      ProcessingRememveringResult(Remembered.Bad);
+                      ProcessingRememberingResult(Remembered.Bad);
                   }
               );
             }
@@ -62,7 +77,7 @@ namespace KursovoiProectCSharp.ViewModel
                 return normalRemembered ?? new RelayCommand(
                   obj =>
                   {
-                      ProcessingRememveringResult(Remembered.Normal);
+                      ProcessingRememberingResult(Remembered.Normal);
                   }
               );
             }
@@ -74,7 +89,7 @@ namespace KursovoiProectCSharp.ViewModel
                 return exelentRemembered ?? new RelayCommand(
                   obj =>
                   {
-                      ProcessingRememveringResult(Remembered.Exelent);
+                      ProcessingRememberingResult(Remembered.Exelent);
                   }
               );
             }
@@ -88,10 +103,19 @@ namespace KursovoiProectCSharp.ViewModel
             this.mainWinVM = mainWinVM;
         }
 
-        private void ProcessingRememveringResult(Remembered remembered)
+        private void ProcessingRememberingResult(Remembered remembered = Remembered.Terminate, bool froceTerminate = true)
         {
             // логика для интервалов от remembered
-            Card = Deck[CardIndex++]; // после завершения, страница должна перейти в меню
+            if (froceTerminate)
+            {
+                mainWinVM.AppPage = null;
+                return;
+            }
+            else if (Deck.hasNext(CardIndex + 1))
+                Card = Deck[++CardIndex];
+            else
+                mainWinVM.AppPage = null;
+
         }
     }
 }

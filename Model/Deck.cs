@@ -17,7 +17,7 @@ namespace KursovoiProectCSharp.Model
         {
             get
             {
-                return i <= cardsCount - 1 ? cards[i] : cards[i - (cardsCount - 1)];
+                return cards[i];
             }
         }
 
@@ -30,6 +30,11 @@ namespace KursovoiProectCSharp.Model
         public Deck()
         {
 
+        }
+
+        public bool hasNext(int i)
+        {
+            return i < cardsCount;
         }
     }
 }

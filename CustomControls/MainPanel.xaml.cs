@@ -66,6 +66,19 @@ namespace KursovoiProectCSharp.CustomControls
         }
 
 
+        /// ///////////////////////////////////////////////////////////
+
+        private void ExitCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void ExitCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+
         public MainPanel()
         {
             InitializeComponent();
