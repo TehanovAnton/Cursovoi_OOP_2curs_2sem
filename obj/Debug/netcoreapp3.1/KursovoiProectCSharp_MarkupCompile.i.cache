@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\App.xaml
-91315168297
+12-125496354
 
-23797522549
-193830968565
-CustomControls\MainPanel.xaml;MainWindow.xaml;Resources\MainWindowResources.xaml;View\AddCardPage.xaml;View\BrowseDeckPage.xaml;View\DeckListPage.xaml;View\MenuPage.xaml;View\StartDeckLsitPage.xaml;View\TrainingCardPage.xaml;
+331237982821
+215-1884284064
+CustomControls\MainPanel.xaml;MainWindow.xaml;Resources\MainWindowResources.xaml;View\AddCardPage.xaml;View\AddDeckPage.xaml;View\BrowseDeckPage.xaml;View\DeckListPage.xaml;View\LogInPage.xaml;View\MenuPage.xaml;View\RegisterPage.xaml;View\StartDeckLsitPage.xaml;View\TrainingCardPage.xaml;
 
 True
 

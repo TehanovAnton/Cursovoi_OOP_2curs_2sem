@@ -8,15 +8,14 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using KursovoiProectCSharp.View;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace KursovoiProectCSharp
 {
     public class MainWindowViewModel : NotifyPropertyChanged
-    {
-        public static Window appWin { get; set; }
-
-        private bool fixedDeckListPage;
+    { 
+        public static Window appWin { get; set; }        
 
         #region Pages
         private Page appPage;
@@ -44,13 +43,24 @@ namespace KursovoiProectCSharp
         #endregion
 
         #region Commands
+        private RelayCommand addDeck;
         private RelayCommand setAppPage;
         private RelayCommand removeAppPage;
-        private RelayCommand setDeckListPage;
-        private RelayCommand setStartDeckListPage;
-        private RelayCommand fixDeckListPage;
+        private RelayCommand setDeckListPage;        
         private RelayCommand closeApp;
        
+        public RelayCommand AddDeck
+        {
+            get
+            {
+                return addDeck ?? new RelayCommand(
+                        obj =>
+                        {
+                            AppPage = new AddDeckPage(this);
+                        }
+                    );
+            }
+        }
         public RelayCommand SetAppPage
         {
             get
@@ -87,37 +97,6 @@ namespace KursovoiProectCSharp
                     );
             }
         }
-        public RelayCommand SetStartDeckListPage
-        {
-            get
-            {
-                return setDeckListPage ?? new RelayCommand(
-                        obj =>
-                        {
-                            DeckListPage = new View.StartDeckLsitPage();
-                        },
-                        (obj) => !fixedDeckListPage
-                    );
-            }
-        }
-        public RelayCommand FixDeckListPage
-        {
-            get
-            {
-                return fixDeckListPage ?? new RelayCommand(
-                        obj =>
-                        {
-                            if (fixedDeckListPage)
-                            {
-                                DeckListPage = new View.StartDeckLsitPage();
-                                fixedDeckListPage = false;
-                            }
-                            else
-                                fixedDeckListPage = true;
-                        }
-                    );
-            }
-        }
         public RelayCommand CloseApp
         {
             get
@@ -138,10 +117,9 @@ namespace KursovoiProectCSharp
             get { return "Main Panel"; }
         }
         
-
         public MainWindowViewModel()
         {
-            fixedDeckListPage = false;
+            AppPage = new LogInPage(this);
             DeckListPage = new View.DeckListPage(this);
         }
 

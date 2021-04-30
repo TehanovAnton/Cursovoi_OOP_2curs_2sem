@@ -17,16 +17,19 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <uc:MainPanel Title="{Binding Title}" CloseIcon="{Binding CloseIcon}"/>
+                <uc:MainPanel Title="{Binding Title}"
+                              CloseIcon="{Binding CloseIcon}"/>
             </Grid>
 
             <Grid Grid.Row="1">
                 <StackPanel>
-                    <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
+                    <!--<Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
                         <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
-                    </Border>
+                    </Border>-->
 
-                    <Button Content="AddCard" Click="AddCard_Click"/>
+                    
+                    <Button Content="AddCard" Command="{Binding AddCard}"/>
+                    <Button Content="AddDeck" Command="{Binding AddDeck}"/>
                 </StackPanel>
             </Grid>
         </Grid>

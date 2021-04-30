@@ -13,10 +13,16 @@
     <Compile Update="View\AddCardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AddDeckPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\BrowseDeckPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\DeckListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LogInPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\MenuPage.xaml.cs">
@@ -39,10 +45,16 @@
     <Page Update="View\AddCardPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\AddDeckPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\BrowseDeckPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DeckListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LogInPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MenuPage.xaml">

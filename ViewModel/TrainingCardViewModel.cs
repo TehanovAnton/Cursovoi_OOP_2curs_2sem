@@ -99,22 +99,22 @@ namespace KursovoiProectCSharp.ViewModel
         {
             Deck = deck;
             CardIndex = 0;
-            Card = deck[CardIndex];
+            //Card = deck[CardIndex];
             this.mainWinVM = mainWinVM;
         }
 
         private void ProcessingRememberingResult(Remembered remembered = Remembered.Terminate, bool froceTerminate = true)
         {
             // логика для интервалов от remembered
-            if (froceTerminate)
-            {
-                mainWinVM.AppPage = null;
-                return;
-            }
-            else if (Deck.hasNext(CardIndex + 1))
-                Card = Deck[++CardIndex];
-            else
-                mainWinVM.AppPage = null;
+            //if (froceTerminate)
+            //{
+            //    mainWinVM.AppPage = null;
+            //    return;
+            //}
+            //else if (Deck.hasNext(CardIndex + 1))
+            //    Card = Deck[++CardIndex];
+            //else
+            //    mainWinVM.AppPage = null;
 
         }
     }

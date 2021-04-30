@@ -29,15 +29,6 @@ namespace KursovoiProectCSharp.Model
 
         private DeckListModel()
         {
-            deckList = new ObservableCollection<Deck>()
-            {
-                new Model.Deck(new List<int>() { 1, 2 }, "A"),
-                new Model.Deck(new List<int>() { 3, 4 }, "B"),
-                new Model.Deck(new List<int>() { 5, 6 }, "C"),
-                new Model.Deck(new List<int>() { 7, 8 }, "D"),
-                new Model.Deck(new List<int>() { 9, 10 }, "E")
-            };
-            DeckList = deckList;            
         }
     }
 }
