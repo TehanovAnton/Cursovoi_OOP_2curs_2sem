@@ -4,18 +4,28 @@ using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using KursovoiProectCSharp.View;
+using KursovoiProectCSharp.Model;
 using static System.Net.Mime.MediaTypeNames;
+using System.Collections.ObjectModel;
 
 namespace KursovoiProectCSharp
 {
     public class MainWindowViewModel : NotifyPropertyChanged
     { 
-        public static Window appWin { get; set; }        
+        public static Window appWin { get; set; }
+        public User user { get; set; }
+
+
+        public string Title
+        {
+            get { return "Main Panel"; }
+        }
+
 
         #region Pages
         private Page appPage;
@@ -42,13 +52,9 @@ namespace KursovoiProectCSharp
         }
         #endregion
 
+
         #region Commands
         private RelayCommand addDeck;
-        private RelayCommand setAppPage;
-        private RelayCommand removeAppPage;
-        private RelayCommand setDeckListPage;        
-        private RelayCommand closeApp;
-       
         public RelayCommand AddDeck
         {
             get
@@ -56,11 +62,28 @@ namespace KursovoiProectCSharp
                 return addDeck ?? new RelayCommand(
                         obj =>
                         {
-                            AppPage = new AddDeckPage(this);
+                            NewDeck newDeck = new NewDeck(user);
+                            newDeck.ShowDialog();
                         }
                     );
             }
         }
+
+
+        private RelayCommand addCard;
+        public RelayCommand AddCard
+        {
+            get { return addCard ?? new RelayCommand(
+                    obj =>
+                    {
+                        AppPage = new AddCardPage();
+                    }
+                ); 
+            }
+        }
+
+
+        private RelayCommand setAppPage;
         public RelayCommand SetAppPage
         {
             get
@@ -73,6 +96,9 @@ namespace KursovoiProectCSharp
                     );
             }
         }
+
+
+        private RelayCommand removeAppPage;
         public RelayCommand RemoveAppPage
         {
             get
@@ -85,6 +111,9 @@ namespace KursovoiProectCSharp
                     );
             }
         }
+
+
+        private RelayCommand setDeckListPage;
         public RelayCommand SetDeckListPage
         {
             get
@@ -97,6 +126,9 @@ namespace KursovoiProectCSharp
                     );
             }
         }
+
+
+        private RelayCommand closeApp;
         public RelayCommand CloseApp
         {
             get
@@ -112,14 +144,8 @@ namespace KursovoiProectCSharp
         #endregion
 
 
-        public string Title
-        {
-            get { return "Main Panel"; }
-        }
-        
         public MainWindowViewModel()
         {
-            AppPage = new LogInPage(this);
             DeckListPage = new View.DeckListPage(this);
         }
 

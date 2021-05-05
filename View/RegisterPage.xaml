@@ -15,10 +15,8 @@
         </Grid.ColumnDefinitions>
         <!--выбор фото-->
         <StackPanel Grid.Column="0">
-            <Image Margin="2 2 2 2"
-                   Source="C:\Users\Anton\source\repos\pacei_NV_OOTP\лабораторные\решения\LabWork10_ado\images\Add.png"
-                   Width="238"
-                   x:Name="imageInput" Height="220">
+            <Image Margin="2 2 2 2" Width="238" Height="220" 
+                   Source="{Binding _Image}">
 
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDown">
@@ -33,21 +31,24 @@
                     CornerRadius="10" Margin="2 2 2 2">
                 <StackPanel Margin="2 2 2 2">
                     <Label Content="Password" Margin="0 0 0 0"/>
-                    <TextBox x:Name="PasswordInput" BorderBrush="White"/>
+                    <TextBox BorderBrush="White"
+                             Text="{Binding _Password}"/>
                 </StackPanel>
             </Border>
             <Border BorderThickness="5" BorderBrush="Black"
                     CornerRadius="10" Margin="2 2 2 2">
                 <StackPanel Margin="2 2 2 2">
                     <Label Content="NickName" Margin="0 0 0 0"/>
-                    <TextBox x:Name="NickNameInput" BorderBrush="White"/>
+                    <TextBox BorderBrush="White"
+                             Text="{Binding _NickName}"/>
                 </StackPanel>
             </Border>
             <Border BorderThickness="5" BorderBrush="Black"
                     CornerRadius="10">
                 <StackPanel Margin="2 2 2 2">
                     <Label Content="Fio" Margin="0 0 0 0"/>
-                    <TextBox x:Name="FioInput" BorderBrush="White"/>
+                    <TextBox BorderBrush="White"
+                             Text="{Binding _Fio}"/>
                 </StackPanel>
             </Border>
 
@@ -55,7 +56,8 @@
                     CornerRadius="10" Margin="0 2 0 0">
                 <StackPanel Margin="2 2 2 2">
                     <Label Content="Mail" Margin="0 0 0 0"/>
-                    <TextBox x:Name="MailInput" BorderBrush="White"/>
+                    <TextBox BorderBrush="White"
+                             Text="{Binding _Mail}"/>
                 </StackPanel>
             </Border>
 
@@ -64,7 +66,7 @@
                 <StackPanel Margin="2 2 2 2">
                     <Label x:Name="birthday" Content="Birthday" 
                            Margin="0 0 0 0"/>
-                    <DatePicker x:Name="birthdayInput"/>
+                    <DatePicker SelectedDate="{Binding _BirthDay}"/>
                 </StackPanel>
             </Border>
             <Button Content="Register" Command="{Binding Register}"

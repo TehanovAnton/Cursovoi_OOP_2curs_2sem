@@ -1365,6 +1365,18 @@
           }
         }
       },
+      "The.Microsoft.Expression.Interactions/4.5.0": {
+        "runtime": {
+          "lib/net452/Microsoft.Expression.Interactions.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "3.0.40218.0"
+          },
+          "lib/net452/System.Windows.Interactivity.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "3.0.40218.0"
+          }
+        }
+      },
       "Trans.System.Windows.Interactivity/3.0.40218.1": {
         "runtime": {
           "lib/netcoreapp3.1/System.Windows.Interactivity.dll": {
@@ -2054,6 +2066,13 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "The.Microsoft.Expression.Interactions/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D8PvAds1IeNjLW7lVXrIh8iFLWNsSARAjuQU9hUZIcSUP0If4UcyXShnYiGRfctJGbFb5+pCyyX5NgbsAJRz/A==",
+      "path": "the.microsoft.expression.interactions/4.5.0",
+      "hashPath": "the.microsoft.expression.interactions.4.5.0.nupkg.sha512"
     },
     "Trans.System.Windows.Interactivity/3.0.40218.1": {
       "type": "package",

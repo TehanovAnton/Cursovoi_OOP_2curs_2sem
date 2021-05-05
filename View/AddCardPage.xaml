@@ -8,19 +8,16 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddCardPage" Background="White">
 
-    <Page.Resources>
-        <local1:AddCardViewModel x:Key="def" QuestionText="." />
-    </Page.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" DataContext="{StaticResource def}">
+        <StackPanel Grid.Row="0">
             <Label Content="Question"/>
-            <TextBox x:Name="questionText" Text="{Binding QuestionText}"
+            <TextBox Text="{Binding QuestionText}"
                      Margin="5 5 5 5"/>
         </StackPanel>
 

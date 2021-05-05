@@ -17,11 +17,11 @@ namespace KursovoiProectCSharp.View
 {    
     public partial class RegisterPage : Page
     {
-        public RegisterPage(MainWindowViewModel mainWinVM, User user)
+        public RegisterPage(MainWindowViewModel mainWinVM, SignLogInWindow logSignIn)
         {
             InitializeComponent();            
 
-            DataContext = new RegisterViewModel(mainWinVM, this, user);
+            DataContext = new RegisterViewModel(mainWinVM, logSignIn);
         }
     }
 }

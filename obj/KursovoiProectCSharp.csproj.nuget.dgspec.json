@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "The.Microsoft.Expression.Interactions": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
             "Trans.System.Windows.Interactivity": {
               "target": "Package",
               "version": "[3.0.40218.1, )"

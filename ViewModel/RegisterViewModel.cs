@@ -10,11 +10,83 @@ using Microsoft.Win32;
 
 namespace KursovoiProectCSharp.ViewModel
 {
-    public class RegisterViewModel
-    {       
-        private RegisterPage registerPage {get; set;}
-        private User user { get; set; }
-        private MainWindowViewModel mainWinVM { get; set; }
+    public class RegisterViewModel : NotifyPropertyChanged
+    {
+        private SignLogInWindow SignLogInWin { get; set; }
+        private MainWindowViewModel mainWinVM;
+
+
+        private string password;
+        public string _Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                OnPropertyChanged("_Password");
+            }
+        }
+
+
+        private string nickName;
+        public string _NickName
+        {
+            get { return nickName; }
+            set
+            {
+                nickName = value;
+                OnPropertyChanged("_NickName");
+            }
+        }
+
+
+        private string fio;
+        public string _Fio
+        {
+            get { return fio; }
+            set
+            {
+                fio = value;
+                OnPropertyChanged("_Fio");
+            }
+        }
+
+
+        private string mail;
+        public string _Mail
+        {
+            get { return mail; }
+            set
+            {
+                mail = value;
+                OnPropertyChanged("_Mail");
+            }
+        }
+
+
+        private DateTime birthDay;
+        public DateTime _BirthDay
+        {
+            get { return birthDay; }
+            set
+            {
+                birthDay = value;
+                OnPropertyChanged("_BirthDay");
+            }
+        }
+
+
+        private BitmapImage image;
+        public BitmapImage _Image
+        {
+            get { return image; }
+            set
+            {
+                image = value;
+                OnPropertyChanged("_Image");
+            }
+        }
+
 
         private RelayCommand setImage;
         public RelayCommand SetImage
@@ -29,7 +101,7 @@ namespace KursovoiProectCSharp.ViewModel
                             imageBitMap.BeginInit();
                             imageBitMap.UriSource = new Uri(dialog.FileName);
                             imageBitMap.EndInit();
-                            registerPage.imageInput.Source = imageBitMap;
+                            _Image = imageBitMap;
                         }
                     }
                 ); }
@@ -43,38 +115,56 @@ namespace KursovoiProectCSharp.ViewModel
                 return register ?? new RelayCommand(
                         obj =>
                         {
-                            user.Password = registerPage.PasswordInput.Text;
-                            user.NickName = registerPage.NickNameInput.Text;
-
-                            Uri uri = (registerPage.imageInput.Source as BitmapImage).UriSource;
-                            byte[] imageBytes = File.ReadAllBytes(uri.OriginalString);
-                            UserInfo userInfo = new UserInfo
+                            // зарегать если такого пользователя нет
+                            if (!DB.IsUser(_Password, _NickName))
                             {
-                                Fio = registerPage.FioInput.Text,
-                                Mail = registerPage.MailInput.Text,
-                                BirthDate = registerPage.birthdayInput.SelectedDate.Value,
-                                RegisterDate = DateTime.Now,
-                                ImageBytes = imageBytes,
-                                User = user
-                            };
+                                Uri uri = (_Image as BitmapImage).UriSource;
+                                byte[] imageBytes = File.ReadAllBytes(uri.OriginalString);
 
-                            using (ApplicationContext db = new ApplicationContext())
-                            {    
-                                db.UsersInfo.Add(userInfo);
-                                db.SaveChanges();
+                                User user = new User
+                                {
+                                    Password = _Password,
+                                    NickName = _NickName
+                                };
+                                UserInfo userInfo = new UserInfo
+                                {
+                                    Fio = _Fio,
+                                    Mail = _Mail,
+                                    BirthDate = _BirthDay,
+                                    RegisterDate = DateTime.Now,
+                                    ImageBytes = imageBytes,
+                                    User = user
+                                };
+
+                                //достаточно созранить info и user добавится автоматом
+                                DB.context.UsersInfo.Add(userInfo);
+                                DB.context.SaveChanges();
+
+                                MainWindow mainWindow = new MainWindow();
+                                mainWindow.ShowDialog();
+
+                                SignLogInWin.Close();
                             }
-
-                            mainWinVM.AppPage = null;
+                            else
+                            {
+                                _NickName = "user with such a nickname already exists";
+                            }
                         }
                     );
             }
         }
 
-        public RegisterViewModel(MainWindowViewModel mainWinVM, RegisterPage registerPage, User user)
+        public RegisterViewModel(MainWindowViewModel mainWinVM, SignLogInWindow SignLogInWin)
         {
-            this.registerPage = registerPage;
-            this.user = user;
+            _Image = MainWindowViewModel.ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\лабораторные\решения\LabWork10_ado\images\Add.png");
             this.mainWinVM = mainWinVM;
+            this.SignLogInWin = SignLogInWin;
+
+            _Password = "a";
+            _NickName = "a";
+            _Fio = "a";
+            _Mail = ".com";
+            _BirthDay = new DateTime(2002, 6, 6);
         }
     }
 }

@@ -22,7 +22,6 @@ namespace KursovoiProectCSharp
             InitializeComponent();
 
             MainWindowViewModel.appWin = this;
-            DataContext = new MainWindowViewModel();
         }
     }
 }

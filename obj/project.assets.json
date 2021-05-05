@@ -1520,6 +1520,17 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "The.Microsoft.Expression.Interactions/4.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net452/Microsoft.Expression.Interactions.dll": {},
+          "lib/net452/System.Windows.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.Expression.Interactions.dll": {},
+          "lib/net452/System.Windows.Interactivity.dll": {}
+        }
+      },
       "Trans.System.Windows.Interactivity/3.0.40218.1": {
         "type": "package",
         "compile": {
@@ -5810,6 +5821,19 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "The.Microsoft.Expression.Interactions/4.5.0": {
+      "sha512": "D8PvAds1IeNjLW7lVXrIh8iFLWNsSARAjuQU9hUZIcSUP0If4UcyXShnYiGRfctJGbFb5+pCyyX5NgbsAJRz/A==",
+      "type": "package",
+      "path": "the.microsoft.expression.interactions/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/Microsoft.Expression.Interactions.dll",
+        "lib/net452/System.Windows.Interactivity.dll",
+        "the.microsoft.expression.interactions.4.5.0.nupkg.sha512",
+        "the.microsoft.expression.interactions.nuspec"
+      ]
+    },
     "Trans.System.Windows.Interactivity/3.0.40218.1": {
       "sha512": "9mhIcJ6i2wWQWDk/BuA8ZwEL+tYb24xbU9NFa17Sr7xbmDGXjBjDJGKDhyOiNOwH4JZt70eZipe9+DsbCPRwzw==",
       "type": "package",
@@ -5829,6 +5853,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.5",
       "System.Configuration.ConfigurationManager >= 5.0.0",
+      "The.Microsoft.Expression.Interactions >= 4.5.0",
       "Trans.System.Windows.Interactivity >= 3.0.40218.1"
     ]
   },
@@ -5885,6 +5910,10 @@
             "target": "Package",
             "version": "[5.0.0, )"
           },
+          "The.Microsoft.Expression.Interactions": {
+            "target": "Package",
+            "version": "[4.5.0, )"
+          },
           "Trans.System.Windows.Interactivity": {
             "target": "Package",
             "version": "[3.0.40218.1, )"
@@ -5911,5 +5940,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"The.Microsoft.Expression.Interactions 4.5.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETCoreApp,Version=v3.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "The.Microsoft.Expression.Interactions",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

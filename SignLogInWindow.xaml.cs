@@ -8,21 +8,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-namespace KursovoiProectCSharp.View
+using KursovoiProectCSharp.ViewModel;
+    
+namespace KursovoiProectCSharp
 {
     /// <summary>
-    /// Логика взаимодействия для LogInPage.xaml
+    /// Логика взаимодействия для SignLogInWindow.xaml
     /// </summary>
-    public partial class LogInPage : Page
+    public partial class SignLogInWindow : Window
     {
-        public LogInPage(MainWindowViewModel mainWindowVM)
+        public SignLogInWindow()
         {
             InitializeComponent();
 
-            DataContext = new ViewModel.LogInViewModel(mainWindowVM);
+            DataContext = new SignLogInViewModel(this);
         }
     }
 }

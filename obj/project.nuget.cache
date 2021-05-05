@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iw7mmfr0iw8UAChvtfnmZCRSqokhOmp9roxEmdOKDZemKIXgJ8MWW7VX3n2IkhcRJEAIeakt6kSC0jSLVHp7TA==",
+  "dgSpecHash": "EVAnf8eN2uGBlWAsU1G3PQJV/47b4QMyVXWGHGryibHllr2L5S9DDa/JA9cmh7GBRUVBiXCc1LE02IHbhlHyOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Anton\\source\\repos\\pacei_NV_OOTP\\Курсовой ООП 2курс-2семестр\\KursovoiProectCSharp\\KursovoiProectCSharp.csproj",
   "expectedPackageFiles": [
@@ -101,7 +101,19 @@
     "C:\\Users\\Anton\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\the.microsoft.expression.interactions\\4.5.0\\the.microsoft.expression.interactions.4.5.0.nupkg.sha512",
     "C:\\Users\\Anton\\.nuget\\packages\\trans.system.windows.interactivity\\3.0.40218.1\\trans.system.windows.interactivity.3.0.40218.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"The.Microsoft.Expression.Interactions 4.5.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETCoreApp,Version=v3.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "The.Microsoft.Expression.Interactions",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

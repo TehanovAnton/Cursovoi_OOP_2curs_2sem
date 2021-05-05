@@ -10,19 +10,19 @@
     <Compile Update="CustomControls\MainPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\AddCardPage.xaml.cs">
+    <Compile Update="View\NewDeck.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\AddDeckPage.xaml.cs">
+    <Compile Update="SignLogInWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddCardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\BrowseDeckPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\DeckListPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\LogInPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\MenuPage.xaml.cs">
@@ -42,19 +42,19 @@
     <Page Update="Resources\MainWindowResources.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\AddCardPage.xaml">
+    <Page Update="View\NewDeck.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\AddDeckPage.xaml">
+    <Page Update="SignLogInWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddCardPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\BrowseDeckPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DeckListPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\LogInPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MenuPage.xaml">

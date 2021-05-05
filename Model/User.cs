@@ -10,13 +10,11 @@ namespace KursovoiProectCSharp.Model
         public string Password { get; set; }
         public string NickName { get; set; }
         public UserInfo Info { get; set; }
+        public List<Deck> Decks { get; set; }
 
-        public User(string password, string nickName)
+        public User()
         {
-            Password = password;
-            NickName = nickName;
+            Decks = new List<Deck>();
         }
-
-        public User() { }
     }
 }
