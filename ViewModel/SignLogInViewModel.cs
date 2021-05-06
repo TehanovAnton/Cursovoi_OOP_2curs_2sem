@@ -83,31 +83,24 @@ namespace KursovoiProectCSharp.ViewModel
                 return logInUser ?? new RelayCommand(
                         obj =>
                         {
-                            User user = new User
-                            {
-                                Password = _Password,
-                                NickName = _NickName
-                            };
-
                             // здесь нужна проверка наличия пользователя
                             if (DB.IsUser(_Password, _NickName))
                             {
                                 //добавить testDeck если её нет
                                 if (!DB.IsDeck("TestDeck", _Password, _NickName))
                                 {
-                                    var ui = DB.context.Users.Where(u => u.Password == _Password && u.NickName == _NickName).Select(u => u.Id).ToList();
-                                    Deck deck = new Deck { Title = "TestDeck", UserId = ui[0] };
-                                    DB.context.Decks.Add(deck);
-                                    DB.context.SaveChanges();
+                                    DB.addDeck(new Deck
+                                    {
+                                        Title = "TestDeck",
+                                        UserId = DB.getUserId(_Password, _NickName)
+                                    });
                                 }                                
 
-                                MainWindowVM.user = user;
+                                MainWindowVM.user = DB.getUser(_Password, _NickName);
                                 MainWindow mainwin = new MainWindow { DataContext = MainWindowVM };
 
-                                SignLogInWin.Hide();
-                                mainwin.ShowDialog();
-
                                 SignLogInWin.Close();
+                                mainwin.ShowDialog();
                             }
                             else
                             {
@@ -136,8 +129,10 @@ namespace KursovoiProectCSharp.ViewModel
         public SignLogInViewModel(SignLogInWindow SignLogInWin)
         {
             this.MainWindowVM = new MainWindowViewModel();
-            MessageLabel = "Welcome";
             this.SignLogInWin = SignLogInWin;
+            MessageLabel = "Welcome";
+            _Password = "1";
+            _NickName = "a";
         }
     }
 }

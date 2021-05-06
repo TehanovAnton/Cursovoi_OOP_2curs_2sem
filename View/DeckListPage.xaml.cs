@@ -18,16 +18,16 @@ namespace KursovoiProectCSharp.View
     /// </summary>
     public partial class DeckListPage : Page
     {
-        private MainWindowViewModel mainWinVM;
-        private DeckListViewModel deckListViewModel;
+        private void ListBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            (this.DataContext as DeckListViewModel).KeyEventCommands.Execute(e);
+        }
 
         public DeckListPage(MainWindowViewModel mainWinVM)
         {
             InitializeComponent();
 
-            this.mainWinVM = mainWinVM;
-            this.deckListViewModel = new DeckListViewModel(mainWinVM);
-            DataContext = this.deckListViewModel;
+            DataContext = new DeckListViewModel(mainWinVM);
         }
     }
 }

@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KursovoiProectCSharp.Model;
+using KursovoiProectCSharp.ViewModel;
 
 namespace KursovoiProectCSharp.View
 {
@@ -18,11 +20,11 @@ namespace KursovoiProectCSharp.View
     /// </summary>
     public partial class AddCardPage : Page
     {
-        public AddCardPage()
+        public AddCardPage(Deck deck, MainWindowViewModel mainWinVM)
         {
             InitializeComponent();
 
-            DataContext = new ViewModel.AddCardViewModel();
+            DataContext = new AddCardViewModel(deck, mainWinVM);
         }
     }
 }

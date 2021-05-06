@@ -17,13 +17,15 @@
 
         <StackPanel Grid.Row="0">
             <Label Content="Question"/>
-            <TextBox Text="{Binding QuestionText}"
+            <TextBox Text="{Binding _Question}"
                      Margin="5 5 5 5"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
             <Label Content="Answer"/>
-            <TextBox  Grid.Row="1" Margin="5 5 5 5"/>
+            <TextBox Text="{Binding _Answear}" Margin="5 5 5 5"/>            
+            
+            <Button Content="Add Card" Command="{Binding AddCard}"/>
         </StackPanel>
     </Grid>
 </Page>

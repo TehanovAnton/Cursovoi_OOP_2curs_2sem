@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -45,14 +46,10 @@ namespace KursovoiProectCSharp.View
             {
                 return refresh ?? new RelayCommand(
                   obj =>
-                  {
-                      //var d = DB.context.Decks.Where(p => p.UserId == mainWinVM.user.Id);
-                      SqlParameter param = new SqlParameter($"@userId", mainWinVM.user.Id);
-                      var d = DB.context.Decks.FromSqlRaw($"getUsersDeck @userId", param).ToList();
-
+                  {                      
                       Decks.Clear();
-                      foreach (var deck in d)
-                          Decks.Add(deck);
+                      foreach (var d in DB.getDecks(mainWinVM.user.Id))
+                          Decks.Add(d);
                   }
               );
             }
@@ -74,24 +71,35 @@ namespace KursovoiProectCSharp.View
         }
 
 
-        private RelayCommand deleteDeck;
-        public RelayCommand DeleteDeck
+        private RelayCommand keyEventCommands;
+        public RelayCommand KeyEventCommands
         {
-            get { return deleteDeck ?? new RelayCommand(
-                    obj =>
-                    {
-                        DB.context.Decks.Remove(SelectedDeck);
-                        DB.context.SaveChanges();
-                    }
-                );}
+            get
+            {
+                return keyEventCommands ?? new RelayCommand(
+                        obj =>
+                        {
+                            KeyEventArgs e = obj as KeyEventArgs;
+                            if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
+                                //DeleteDeck
+                                if (e.Key == Key.Delete)
+                                {
+                                    DB.removeDeck(SelectedDeck);
+                                }
+                                //AddCard
+                                else if (e.Key == Key.A)
+                                {
+                                    mainWinVM.AppPage = new AddCardPage(SelectedDeck, mainWinVM);
+                                }
+                        }
+                    );
+            }
         }
 
         public DeckListViewModel(MainWindowViewModel mainWinVM)
         {
-            decks = new ObservableCollection<Deck>();
-
-            Decks.Add(new Deck() { Title = "someDeck1"});
+            Decks = new ObservableCollection<Deck>();
             this.mainWinVM = mainWinVM;
-        }        
+        }
     }
 }

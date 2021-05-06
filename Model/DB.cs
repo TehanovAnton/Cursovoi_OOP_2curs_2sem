@@ -16,15 +16,54 @@ namespace KursovoiProectCSharp
             context = new ApplicationContext();
         }
 
+
         public static bool IsUser(string password, string nickname)
         {
             return context.Users.Where(u => u.Password == password && u.NickName == nickname).ToList().Count == 1;
         }
+        public static User getUser(string password, string nickname)
+        {
+            return context.Users.Where(u => u.Password == password && u.NickName == nickname).ToList()[0];
+        }
+        public static int getUserId(string password, string nickname)
+        {
+            return context.Users.Where(u => u.Password == password && u.NickName == nickname).Select(u => u.Id).ToList()[0];
+        }
+
 
         public static bool IsDeck(string title, string password, string nickname)
         {
             var u = context.Users.Where(u => u.Password == password && u.NickName == nickname).ToList();
             return context.Decks.Where(d => d.Title == title && d.UserId == u[0].Id).ToList().Count == 1;
+        }
+        public static void addDeck(Deck deck)
+        {
+            context.Decks.Add(deck);
+            context.SaveChanges();
+        }
+        public static List<Deck> getDecks(int userId)
+        {
+            return context.Decks.Where(d => d.UserId == userId).ToList();
+        }
+        public static void removeDeck(Deck deck)
+        {
+            //удалить все катрточки
+            foreach (Card c in getCards(deck))
+                context.Cards.Remove(c);
+            //удалить колоду
+            DB.context.Decks.Remove(deck);
+            DB.context.SaveChanges();
+        }
+
+
+        public static void addCard(Card card)
+        {
+            context.Cards.Add(card);
+            context.SaveChanges();
+        }
+        public static List<Card> getCards(Deck deck)
+        {
+            return context.Cards.Where(c => c.DeckId == deck.Id).ToList();
         }
     }
 }

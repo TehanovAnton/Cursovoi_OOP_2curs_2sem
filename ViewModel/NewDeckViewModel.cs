@@ -19,14 +19,19 @@ namespace KursovoiProectCSharp.ViewModel
             get { return addDeck ?? new RelayCommand(
                     obj =>
                     {
-                        var deck = new Deck
+                        if (!DB.IsDeck(_Title, _User.Password, _User.NickName))
                         {
-                            Title = _Title,
-                            User = _User
-                        };
-                        DB.context.Decks.Add(deck);
-                        DB.context.SaveChanges();
-                        Win.DialogResult = true;
+                            DB.addDeck(new Deck
+                            {
+                                Title = _Title,
+                                UserId = _User.Id
+                            });                            
+                            Win.DialogResult = true;
+                        }
+                        else
+                        {
+                            _Title = "this deck already exists";
+                        }
                     }
                 ); 
             }

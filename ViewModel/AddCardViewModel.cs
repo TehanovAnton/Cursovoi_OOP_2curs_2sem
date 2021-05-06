@@ -3,11 +3,70 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using KursovoiProectCSharp.Model;
 
 namespace KursovoiProectCSharp.ViewModel
 {
-    public class AddCardViewModel : DependencyObject
+    public class AddCardViewModel : NotifyPropertyChanged
     {
-        public string QuestionText { get; set; }
+        private MainWindowViewModel mainWinVM;
+        private Deck deck;
+
+
+        private string _question;
+        public string _Question
+        {
+            get
+            {
+                return _question;
+            }
+            set
+            {
+                _question = value;
+                OnPropertyChanged("_Question");
+            }
+        }
+
+
+        private string _answear;
+        public string _Answear
+        {
+            get
+            {
+                return _answear;
+            }
+            set
+            {
+                _answear = value;
+                OnPropertyChanged("_Answear");
+            }
+        }
+
+
+        public RelayCommand AddCard
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            DB.addCard(new Card
+                            {
+                                Question = _Question,
+                                Answear = _Answear,
+                                DeckId = deck.Id
+                            });
+                            mainWinVM.AppPage = null;
+                        }
+                    );
+            }
+        }
+
+
+        public AddCardViewModel(Deck deck, MainWindowViewModel mainWinVM)
+        {
+            this.mainWinVM = mainWinVM;
+            this.deck = deck;
+        }
     }
 }

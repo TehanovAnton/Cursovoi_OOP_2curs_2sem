@@ -62,25 +62,11 @@ namespace KursovoiProectCSharp
                 return addDeck ?? new RelayCommand(
                         obj =>
                         {
-                            NewDeck newDeck = new NewDeck(user);
-                            newDeck.ShowDialog();
+                            (new NewDeck(user)).ShowDialog();
                         }
                     );
             }
-        }
-
-
-        private RelayCommand addCard;
-        public RelayCommand AddCard
-        {
-            get { return addCard ?? new RelayCommand(
-                    obj =>
-                    {
-                        AppPage = new AddCardPage();
-                    }
-                ); 
-            }
-        }
+        }      
 
 
         private RelayCommand setAppPage;

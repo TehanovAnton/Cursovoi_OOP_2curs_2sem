@@ -17,8 +17,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <uc:MainPanel Title="{Binding Title}"
-                              CloseIcon="{Binding CloseIcon}"/>
+                <uc:MainPanel/>
             </Grid>
 
             <Grid Grid.Row="1">
@@ -27,8 +26,6 @@
                         <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
                     </Border>
 
-                    
-                    <Button Content="AddCard" Command="{Binding AddCard}"/>
                     <Button Content="AddDeck" Command="{Binding AddDeck}"/>
                 </StackPanel>
             </Grid>
