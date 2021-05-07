@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using KursovoiProectCSharp.Model;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -24,8 +26,7 @@ namespace KursovoiProectCSharp.View
                 decks = value;
                 OnPropertyChanged("Dekcs");
             }
-        }        
-
+        }
 
         private Deck selectedDeck;
         public Deck SelectedDeck
@@ -39,12 +40,11 @@ namespace KursovoiProectCSharp.View
         }
 
 
-        private RelayCommand refresh;
         public RelayCommand Refresh
         {
             get
             {
-                return refresh ?? new RelayCommand(
+                return new RelayCommand(
                   obj =>
                   {                      
                       Decks.Clear();
@@ -55,13 +55,11 @@ namespace KursovoiProectCSharp.View
             }
         }
 
-
-        private RelayCommand goCardTraining;
         public RelayCommand GoCardTraining
         {
             get
             {
-                return goCardTraining ?? new RelayCommand(
+                return new RelayCommand(
                   obj =>
                   {
                       mainWinVM.AppPage = new TrainingCardPage(SelectedDeck, mainWinVM);
@@ -70,17 +68,18 @@ namespace KursovoiProectCSharp.View
             }
         }
 
-
-        private RelayCommand keyEventCommands;
         public RelayCommand KeyEventCommands
         {
             get
             {
-                return keyEventCommands ?? new RelayCommand(
+                return new RelayCommand(
                         obj =>
                         {
-                            KeyEventArgs e = obj as KeyEventArgs;
+                            object[] args = obj as object[];
+                            KeyEventArgs e = args[1] as KeyEventArgs;
+
                             if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
+                            {
                                 //DeleteDeck
                                 if (e.Key == Key.Delete)
                                 {
@@ -91,15 +90,22 @@ namespace KursovoiProectCSharp.View
                                 {
                                     mainWinVM.AppPage = new AddCardPage(SelectedDeck, mainWinVM);
                                 }
+                                // позволить менять название колоды
+                                else if (e.Key == Key.E)
+                                {
+                                    (new ChangeDeckTitle(SelectedDeck)).ShowDialog();
+                                }
+                            }
                         }
                     );
             }
         }
 
+
         public DeckListViewModel(MainWindowViewModel mainWinVM)
         {
             Decks = new ObservableCollection<Deck>();
-            this.mainWinVM = mainWinVM;
+            this.mainWinVM = mainWinVM;           
         }
     }
 }

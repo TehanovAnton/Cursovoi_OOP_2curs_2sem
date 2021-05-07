@@ -27,6 +27,7 @@
         </StackPanel>
         <!--поля user-->
         <StackPanel Grid.Column="1">
+            <Button Content="Back" Command="{Binding BackToLogIn}"/>
             <Border BorderThickness="5" BorderBrush="Black"
                     CornerRadius="10" Margin="2 2 2 2">
                 <StackPanel Margin="2 2 2 2">

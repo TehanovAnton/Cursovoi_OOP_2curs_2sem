@@ -13,6 +13,7 @@ namespace KursovoiProectCSharp.Model
         public DbSet<User> Users { get; set; }
         public DbSet<UserInfo> UsersInfo { get; set; }
 
+
         private DbSet<Deck> decks;
         public DbSet<Deck> Decks
         {

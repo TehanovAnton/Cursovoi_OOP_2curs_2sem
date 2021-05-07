@@ -120,3 +120,7 @@ C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2с�
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\SignLogInWindow.g.cs
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\SignLogInWindow.baml
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\bin\Debug\netcoreapp3.1\Microsoft.Expression.Interactions.dll
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\ChangeDeckTitle.g.cs
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\ChangeDeckTitle.baml
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\SavedLogPage.g.cs
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\SavedLogPage.baml

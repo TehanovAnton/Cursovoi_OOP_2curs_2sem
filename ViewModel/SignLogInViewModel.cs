@@ -11,7 +11,46 @@ namespace KursovoiProectCSharp.ViewModel
 {
     public class SignLogInViewModel : NotifyPropertyChanged
     {
-        public SignLogInWindow SignLogInWin { get; set; }
+        public SignLogInWindow SignLogInWin { get; set; }       
+
+
+        private MainWindowViewModel mainWindowVM;
+        public MainWindowViewModel MainWindowVM
+        {
+            get { return mainWindowVM; }
+            set
+            {
+                mainWindowVM = value;
+            }
+        }
+
+
+        private Page logSignInPage;
+        public Page LogSignInPage
+        {
+            get { return logSignInPage; }
+            set
+            {
+                logSignInPage = value;
+                OnPropertyChanged("LogSignInPage");
+            }
+        }
+
+
+        private Page savedListPage;
+        public Page SavedListPage
+        {
+            get
+            {
+                return savedListPage;
+            }
+            set
+            {
+                savedListPage = value;
+                OnPropertyChanged("SavedListPage");
+            }
+        }
+
 
         private string messageLabel;
         public string MessageLabel
@@ -28,25 +67,17 @@ namespace KursovoiProectCSharp.ViewModel
         }
 
 
-        private MainWindowViewModel mainWindowVM;
-        public MainWindowViewModel MainWindowVM
+        private bool savePassword;
+        public bool SavePassword
         {
-            get { return mainWindowVM; }
-            set
+            get
             {
-                mainWindowVM = value;
+                return savePassword;
             }
-        }
-
-
-        Page logSignInPage;
-        public Page LogSignInPage
-        {
-            get { return logSignInPage; }
             set
             {
-                logSignInPage = value;
-                OnPropertyChanged("LogSignInPage");
+                savePassword = value;
+                OnPropertyChanged("SavePassword");
             }
         }
 
@@ -94,7 +125,12 @@ namespace KursovoiProectCSharp.ViewModel
                                         Title = "TestDeck",
                                         UserId = DB.getUserId(_Password, _NickName)
                                     });
-                                }                                
+                                }
+
+                                //информация для входа будет сохранена в зависимости от SavePassword
+                                DB.saveLog(SavePassword, DB.getUser(_Password, _NickName));
+
+                                var i = DB.getUser(_Password, _NickName);
 
                                 MainWindowVM.user = DB.getUser(_Password, _NickName);
                                 MainWindow mainwin = new MainWindow { DataContext = MainWindowVM };
@@ -130,6 +166,8 @@ namespace KursovoiProectCSharp.ViewModel
         {
             this.MainWindowVM = new MainWindowViewModel();
             this.SignLogInWin = SignLogInWin;
+            this.SavedListPage = new SavedLogPage();
+
             MessageLabel = "Welcome";
             _Password = "1";
             _NickName = "a";

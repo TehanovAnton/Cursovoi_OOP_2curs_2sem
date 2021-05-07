@@ -27,6 +27,14 @@
 
             <Button Content="Register" 
                     Command="{Binding Register}"/>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding SavePassword}"/>
+                <Label Content="Save password"/>
+            </StackPanel>
+
+            <Frame NavigationUIVisibility="Hidden" 
+                   Content="{Binding SavedListPage}"/>
         </StackPanel>
 
         <Frame NavigationUIVisibility="Hidden"

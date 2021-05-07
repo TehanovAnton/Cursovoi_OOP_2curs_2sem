@@ -10,6 +10,9 @@
     <Compile Update="CustomControls\MainPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ChangeDeckTitle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\NewDeck.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
     <Compile Update="View\MenuPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\SavedLogPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\StartDeckLsitPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ChangeDeckTitle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\NewDeck.xaml">
@@ -58,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MenuPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SavedLogPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StartDeckLsitPage.xaml">

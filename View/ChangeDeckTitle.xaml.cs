@@ -8,26 +8,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KursovoiProectCSharp.Model;
 
 namespace KursovoiProectCSharp.View
 {
     /// <summary>
-    /// Логика взаимодействия для DeckListPage.xaml
+    /// Логика взаимодействия для ChangeDeckTitle.xaml
     /// </summary>
-    public partial class DeckListPage : Page
+    public partial class ChangeDeckTitle : Window
     {
-        private void ListBox_KeyUp(object sender, KeyEventArgs e)
+        private Deck deck;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            (this.DataContext as DeckListViewModel).KeyEventCommands.Execute(new object[] { sender, e});
+            deck.Title = this.Title.Text;
+            DB.context.SaveChanges();
+            this.DialogResult = true;
         }
 
-        public DeckListPage(MainWindowViewModel mainWinVM)
+        public ChangeDeckTitle(Deck deck)
         {
             InitializeComponent();
 
-            DataContext = new DeckListViewModel(mainWinVM);
+            this.deck = deck;
         }
     }
 }

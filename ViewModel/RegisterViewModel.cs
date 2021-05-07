@@ -88,10 +88,9 @@ namespace KursovoiProectCSharp.ViewModel
         }
 
 
-        private RelayCommand setImage;
         public RelayCommand SetImage
         {
-            get { return setImage ?? new RelayCommand(
+            get { return new RelayCommand(
                     obj =>
                     {
                         OpenFileDialog dialog = new OpenFileDialog();
@@ -107,20 +106,16 @@ namespace KursovoiProectCSharp.ViewModel
                 ); }
         }
 
-        private RelayCommand register;
         public RelayCommand Register
         {
             get
             {
-                return register ?? new RelayCommand(
+                return new RelayCommand(
                         obj =>
                         {
                             // зарегать если такого пользователя нет
                             if (!DB.IsUser(_Password, _NickName))
-                            {
-                                Uri uri = (_Image as BitmapImage).UriSource;
-                                byte[] imageBytes = File.ReadAllBytes(uri.OriginalString);
-
+                            {           
                                 User user = new User
                                 {
                                     Password = _Password,
@@ -131,14 +126,13 @@ namespace KursovoiProectCSharp.ViewModel
                                     Fio = _Fio,
                                     Mail = _Mail,
                                     BirthDate = _BirthDay,
-                                    RegisterDate = DateTime.Now,
-                                    ImageBytes = imageBytes,
+                                    RegisterDate
+                                    = DateTime.Now,
+                                    ImageBytes = getImageBytes(_Image),
                                     User = user
                                 };
 
-                                //достаточно созранить info и user добавится автоматом
-                                DB.context.UsersInfo.Add(userInfo);
-                                DB.context.SaveChanges();
+                                DB.saveUserInfo(userInfo);
 
                                 MainWindow mainWindow = new MainWindow();
                                 mainWindow.ShowDialog();
@@ -149,6 +143,19 @@ namespace KursovoiProectCSharp.ViewModel
                             {
                                 _NickName = "user with such a nickname already exists";
                             }
+                        }
+                    );
+            }
+        }
+
+        public RelayCommand BackToLogIn
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            (SignLogInWin.DataContext as SignLogInViewModel).LogSignInPage = null;
                         }
                     );
             }
@@ -165,6 +172,12 @@ namespace KursovoiProectCSharp.ViewModel
             _Fio = "a";
             _Mail = ".com";
             _BirthDay = new DateTime(2002, 6, 6);
+        }
+
+        private static byte[] getImageBytes(BitmapImage image)
+        {
+            Uri uri = (image as BitmapImage).UriSource;
+            return File.ReadAllBytes(uri.OriginalString);
         }
     }
 }
