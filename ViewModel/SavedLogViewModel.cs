@@ -9,6 +9,9 @@ namespace KursovoiProectCSharp.ViewModel
 {
     public class SavedLogViewModel : NotifyPropertyChanged
     {
+        private SignLogInViewModel SignLogInWinVM { get; set; }
+
+
         private ObservableCollection<User> users;
         public ObservableCollection<User> Users
         {
@@ -49,6 +52,22 @@ namespace KursovoiProectCSharp.ViewModel
               );
             }
         }
+        public RelayCommand SetSavedLog
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            if (SelectedUser != null)
+                            {
+                                SignLogInWinVM._Password = SelectedUser.Password;
+                                SignLogInWinVM._NickName = SelectedUser.NickName;
+                            }
+                        }
+                    );
+            }
+        }
 
         //public RelayCommand KeyEventCommands
         //{
@@ -74,9 +93,10 @@ namespace KursovoiProectCSharp.ViewModel
         //}
 
 
-        public SavedLogViewModel()
+        public SavedLogViewModel(SignLogInViewModel SignLogInWinVM)
         {
             Users = new ObservableCollection<User>();
+            this.SignLogInWinVM = SignLogInWinVM;
         }
     }
 }

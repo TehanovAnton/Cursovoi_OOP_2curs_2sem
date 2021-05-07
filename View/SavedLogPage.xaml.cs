@@ -19,11 +19,11 @@ namespace KursovoiProectCSharp.View
     /// </summary>
     public partial class SavedLogPage : Page
     {
-        public SavedLogPage()
+        public SavedLogPage(SignLogInViewModel SignLogInWinVM)
         {
             InitializeComponent();
 
-            DataContext = new SavedLogViewModel();
+            DataContext = new SavedLogViewModel(SignLogInWinVM);
         }
 
         //private void ListBox_KeyUp(object sender, KeyEventArgs e)

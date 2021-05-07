@@ -89,7 +89,7 @@ namespace KursovoiProectCSharp.ViewModel
             set
             {
                 password = value;
-                OnPropertyChanged("Password");
+                OnPropertyChanged("_Password");
             }
         }
 
@@ -101,7 +101,7 @@ namespace KursovoiProectCSharp.ViewModel
             set
             {
                 nickName = value;
-                OnPropertyChanged("NickName");
+                OnPropertyChanged("_NickName");
             }
         }
 
@@ -166,7 +166,7 @@ namespace KursovoiProectCSharp.ViewModel
         {
             this.MainWindowVM = new MainWindowViewModel();
             this.SignLogInWin = SignLogInWin;
-            this.SavedListPage = new SavedLogPage();
+            this.SavedListPage = new SavedLogPage(this);
 
             MessageLabel = "Welcome";
             _Password = "1";

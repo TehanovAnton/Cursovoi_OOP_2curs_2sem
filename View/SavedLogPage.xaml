@@ -16,8 +16,14 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
 
-            <ListBox ItemsSource="{Binding Users}"
+            <ListBox x:Name="SelelctionChanged" ItemsSource="{Binding Users}"
                          SelectedItem="{Binding SelectedUser}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SetSavedLog}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
