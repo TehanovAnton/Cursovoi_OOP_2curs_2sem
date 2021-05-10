@@ -27,7 +27,7 @@
                         <StackPanel>
                             <TextBlock Text="{Binding Path=Title}"
                                          FontSize="18"/>
-                            <TextBlock Text="{Binding Path=Cards.Count}"/>
+                            <TextBlock Text="{Binding Path=Count}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

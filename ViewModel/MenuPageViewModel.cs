@@ -1,40 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Media.Imaging;
+using KursovoiProectCSharp.View;
 
 namespace KursovoiProectCSharp.ViewModel
 {
     public class MenuPageViewModel : NotifyPropertyChanged
     {
         private MainWindowViewModel mainWinVM;
-
-
-
-        private RelayCommand closeMenu;
+        
         public RelayCommand CloseMenu
         {
-            get { return closeMenu ?? new RelayCommand(
+            get { return new RelayCommand(
                   obj =>
                   {
                       mainWinVM.AppPage = null;
                   }
               );}
         }
-
-
-
-        private RelayCommand setBroseDeckPage;
         public RelayCommand SetBroseDeckPage
         {
             get
             {
-                return setBroseDeckPage ?? new RelayCommand(
+                return new RelayCommand(
                 obj =>
                 {
                     mainWinVM.AppPage = new BrowseDeckPage(mainWinVM);
                 }
             );
+            }
+        }
+        public RelayCommand EditUser
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            mainWinVM.AppPage = new RegisterPage(mainWinVM.user);
+                        }
+                    );
             }
         }
 

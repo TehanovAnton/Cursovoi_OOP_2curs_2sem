@@ -12,20 +12,9 @@ namespace KursovoiProectCSharp.Model
     {
         public DbSet<User> Users { get; set; }
         public DbSet<UserInfo> UsersInfo { get; set; }
-
-
-        private DbSet<Deck> decks;
-        public DbSet<Deck> Decks
-        {
-            get { return decks; }
-            set
-            {
-                decks = value;
-                OnPropertyChanged("Decks");
-            }
-        }
-
+        public DbSet<Deck> Decks { get; set; }
         public DbSet<Card> Cards { get; set; }
+        public DbSet<Media> Medias { get; set; }
 
         public ApplicationContext()
         {

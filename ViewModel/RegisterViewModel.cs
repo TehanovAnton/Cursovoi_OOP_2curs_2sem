@@ -12,7 +12,6 @@ namespace KursovoiProectCSharp.ViewModel
 {
     public class RegisterViewModel : NotifyPropertyChanged
     {
-        private SignLogInWindow SignLogInWin { get; set; }
         private MainWindowViewModel mainWinVM;
 
 
@@ -131,13 +130,13 @@ namespace KursovoiProectCSharp.ViewModel
                                     ImageBytes = getImageBytes(_Image),
                                     User = user
                                 };
-
                                 DB.saveUserInfo(userInfo);
 
-                                MainWindow mainWindow = new MainWindow();
-                                mainWindow.ShowDialog();
+                                mainWinVM.user = user;
+                                MainWindow mainWindow = new MainWindow { DataContext = mainWinVM };
 
-                                SignLogInWin.Close();
+                                SignLogInViewModel.SignLogInWin.Close();
+                                mainWindow.ShowDialog();
                             }
                             else
                             {
@@ -155,23 +154,34 @@ namespace KursovoiProectCSharp.ViewModel
                 return new RelayCommand(
                         obj =>
                         {
-                            (SignLogInWin.DataContext as SignLogInViewModel).LogSignInPage = null;
+                            (SignLogInViewModel.SignLogInWin.DataContext as SignLogInViewModel).LogSignInPage = null;
                         }
                     );
             }
         }
 
-        public RegisterViewModel(MainWindowViewModel mainWinVM, SignLogInWindow SignLogInWin)
+        public RegisterViewModel(MainWindowViewModel mainWinVM)
         {
             _Image = MainWindowViewModel.ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\лабораторные\решения\LabWork10_ado\images\Add.png");
-            this.mainWinVM = mainWinVM;
-            this.SignLogInWin = SignLogInWin;
+            this.mainWinVM = mainWinVM;            
 
             _Password = "a";
             _NickName = "a";
             _Fio = "a";
             _Mail = ".com";
             _BirthDay = new DateTime(2002, 6, 6);
+        }
+        public RegisterViewModel(User _user)
+        {
+            this.mainWinVM = new MainWindowViewModel { user = _user };
+
+            _Password = _user.Password;
+            _NickName = _user.NickName;
+
+            var info = DB.getUserInfo(_user.Id);
+            _Fio = info.Fio;
+            _Mail = info.Mail;
+            _BirthDay = info.BirthDate;
         }
 
         private static byte[] getImageBytes(BitmapImage image)

@@ -50,12 +50,20 @@ namespace KursovoiProectCSharp.ViewModel
                 return new RelayCommand(
                         obj =>
                         {
-                            DB.addCard(new Card
+                            var q = new Media { Text = _Question, Type = MediaType.Question };
+                            var a = new Media { Text = _Question, Type = MediaType.Answear };
+                            DB.context.Medias.AddRange(q, a);
+                            DB.context.SaveChanges();
+
+                            var c = new Card()
                             {
-                                Question = _Question,
-                                Answear = _Answear,
-                                DeckId = deck.Id
-                            });
+                                QuestionMediaId = q.Id,
+                                AnswearMediaId = a.Id,
+                                DeckId = deck.Id,
+                                lastAnswearTime = new DateTime()
+                            };
+
+                            DB.addCard(c);
                             mainWinVM.AppPage = null;
                         }
                     );

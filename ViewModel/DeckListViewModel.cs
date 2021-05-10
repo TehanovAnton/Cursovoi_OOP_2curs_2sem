@@ -62,7 +62,8 @@ namespace KursovoiProectCSharp.View
                 return new RelayCommand(
                   obj =>
                   {
-                      mainWinVM.AppPage = new TrainingCardPage(SelectedDeck, mainWinVM);
+                      if (DB.getTrainCard(SelectedDeck.Id) != null)
+                        mainWinVM.AppPage = new TrainingCardPage(SelectedDeck, mainWinVM);
                   }
               );
             }
@@ -90,10 +91,10 @@ namespace KursovoiProectCSharp.View
                                 {
                                     mainWinVM.AppPage = new AddCardPage(SelectedDeck, mainWinVM);
                                 }
-                                // позволить менять название колоды
-                                else if (e.Key == Key.E)
+                                //TrainingCards
+                                else if (e.Key == Key.T)
                                 {
-                                    (new ChangeDeckTitle(SelectedDeck)).ShowDialog();
+                                    GoCardTraining.Execute("");
                                 }
                             }
                         }

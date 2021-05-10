@@ -11,7 +11,7 @@ namespace KursovoiProectCSharp.ViewModel
 {
     public class SignLogInViewModel : NotifyPropertyChanged
     {
-        public SignLogInWindow SignLogInWin { get; set; }       
+        public static SignLogInWindow SignLogInWin { get; set; }       
 
 
         private MainWindowViewModel mainWindowVM;
@@ -105,13 +105,12 @@ namespace KursovoiProectCSharp.ViewModel
             }
         }
 
-
-        private RelayCommand logInUser;
+        
         public RelayCommand LogInUser
         {
             get
             {
-                return logInUser ?? new RelayCommand(
+                return new RelayCommand(
                         obj =>
                         {
                             // здесь нужна проверка наличия пользователя
@@ -146,26 +145,24 @@ namespace KursovoiProectCSharp.ViewModel
                     );
             }
         }
-
-
-        private RelayCommand register;
         public RelayCommand Register
         {
             get
             {
-                return register ?? new RelayCommand(
+                return new RelayCommand(
                         obj =>
                         {
-                            LogSignInPage = new RegisterPage(mainWindowVM, SignLogInWin);
+                            LogSignInPage = new RegisterPage(mainWindowVM);
                         }
                     );
             }
         }
 
+
         public SignLogInViewModel(SignLogInWindow SignLogInWin)
         {
             this.MainWindowVM = new MainWindowViewModel();
-            this.SignLogInWin = SignLogInWin;
+            SignLogInViewModel.SignLogInWin = SignLogInWin;
             this.SavedListPage = new SavedLogPage(this);
 
             MessageLabel = "Welcome";

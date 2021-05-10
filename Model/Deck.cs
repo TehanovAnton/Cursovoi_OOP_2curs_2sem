@@ -15,6 +15,15 @@ namespace KursovoiProectCSharp.Model
         [ForeignKey("UserId")]
         public User User { get; set; }
         
+        public int Count
+        {
+            get
+            {
+                return DB.getDeckCardCount(Id);
+            }
+        }
+
+
         public Deck()
         {
             Cards = new List<Card>();

@@ -13,10 +13,9 @@ namespace KursovoiProectCSharp.ViewModel
         public string _Title { get; set; }
 
 
-        private RelayCommand addDeck;
         public RelayCommand AddDeck
         {
-            get { return addDeck ?? new RelayCommand(
+            get { return new RelayCommand(
                     obj =>
                     {
                         if (!DB.IsDeck(_Title, _User.Password, _User.NickName))

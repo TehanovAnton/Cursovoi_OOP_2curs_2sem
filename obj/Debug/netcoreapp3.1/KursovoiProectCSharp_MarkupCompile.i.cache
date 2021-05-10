@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\App.xaml
-14161624353
+16-760374942
 
-35324725603
+41-1081571763
 21614847337
-CustomControls\MainPanel.xaml;MainWindow.xaml;Resources\MainWindowResources.xaml;SignLogInWindow.xaml;View\AddCardPage.xaml;View\BrowseDeckPage.xaml;View\ChangeDeckTitle.xaml;View\DeckListPage.xaml;View\MenuPage.xaml;View\NewDeck.xaml;View\RegisterPage.xaml;View\SavedLogPage.xaml;View\StartDeckLsitPage.xaml;View\TrainingCardPage.xaml;
+MainWindow.xaml;Resources\MainWindowResources.xaml;SignLogInWindow.xaml;View\AddCardPage.xaml;View\BrowseDeckPage.xaml;View\CardSettingsPage.xaml;View\ChangeDeckTitle.xaml;View\DeckListPage.xaml;View\EditCardPage.xaml;View\MainPanelPage.xaml;View\MenuPage.xaml;View\NewDeck.xaml;View\RegisterPage.xaml;View\SavedLogPage.xaml;View\StartDeckLsitPage.xaml;View\TrainingCardPage.xaml;
 
-True
+False
 

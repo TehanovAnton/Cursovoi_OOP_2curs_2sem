@@ -1,36 +1,36 @@
-﻿using System;
+﻿using KursovoiProectCSharp.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using KursovoiProectCSharp.View;
 
 namespace KursovoiProectCSharp.ViewModel
 {
     public class TrainingCardViewModel : NotifyPropertyChanged
     {
-        private enum Remembered
-        {
-            Bad, Normal, Exelent, Terminate
-        }
-
         private MainWindowViewModel mainWinVM;
-        private int card; //класс Card ещё не спроектирован
-        private Model.Deck deck;
 
-        public int Card
+
+        private Page trainingPage;
+        public Page TrainingPage
         {
-            get { return card; }
+            get
+            {
+                return trainingPage;
+            }
             set
             {
-                card = value;
-                OnPropertyChanged("Card");
+                trainingPage = value;
+                OnPropertyChanged("TrainingPage");
             }
         }
-        public string CardTxt
-        {
-            get { return Card.ToString(); }
-        }
-        public int CardIndex { get; set; }
-        public Model.Deck Deck
+
+
+        private Deck deck;
+        public Deck Deck
         {
             get { return deck; }
             set
@@ -41,81 +41,199 @@ namespace KursovoiProectCSharp.ViewModel
         }
 
 
-        private RelayCommand endTraining;
-        private RelayCommand badRemembered;
-        private RelayCommand normalRemembered;
-        private RelayCommand exelentRemembered;
+        public Card currentCard;
+        public Card CurrentCard
+
+        {
+            get { return currentCard; }
+            set
+            {
+                currentCard = value;
+                OnPropertyChanged("CurrentCard");
+            }
+        }
+
+
+        private string questionText;
+        public string QuestionText
+        {
+            get
+            {
+                return questionText;
+            }
+            set
+            {
+                questionText = value;
+                OnPropertyChanged("QuestionText");
+            }
+        }
+
+        private string answearText;
+        public string AnswearText
+        {
+            get
+            {
+                return answearText;
+            }
+            set
+            {
+                answearText = value;
+                OnPropertyChanged("AnswearText");
+            }
+        }
+
+
+        private void SetQuality(MemoryzationQuality quality)
+        {
+            DB.changeMemoryzationCategory(CurrentCard, quality);
+            CurrentCard.lastAnswearTime = DateTime.Now;
+            CurrentCard = DB.getTrainCard(Deck.Id);
+            if (CurrentCard == null)
+                EndTraining.Execute("");
+        }
 
 
         public RelayCommand EndTraining
         {
             get
             {
-                return endTraining ?? new RelayCommand(
-                  obj =>
-                  {
-                      ProcessingRememberingResult();
-                  }
-              );
+                return new RelayCommand(
+                        obj =>
+                        {
+                            mainWinVM.AppPage = null;
+                        }
+                    );
             }
         }
-        public RelayCommand BadRemembered
-        {
-            get {
-                return badRemembered ?? new RelayCommand(
-                  obj =>
-                  {
-                      ProcessingRememberingResult(Remembered.Bad);
-                  }
-              );
-            }
-        }
-        public RelayCommand NormalRemembered
+        public RelayCommand SetCardSettingPage
         {
             get
             {
-                return normalRemembered ?? new RelayCommand(
-                  obj =>
-                  {
-                      ProcessingRememberingResult(Remembered.Normal);
-                  }
-              );
+                return new RelayCommand(
+                        obj =>
+                        {
+                            TrainingPage = new CardSettingsPage(this);
+                        }
+                    );
             }
         }
-        public RelayCommand ExelentRemembered
+        public RelayCommand EditCard
         {
             get
             {
-                return exelentRemembered ?? new RelayCommand(
-                  obj =>
-                  {
-                      ProcessingRememberingResult(Remembered.Exelent);
-                  }
-              );
+                return new RelayCommand(
+                        obj =>
+                        {
+                            TrainingPage = new EditCardPage(CurrentCard, this);
+                        }
+                    );
+            }
+        }
+        public RelayCommand CloseMenu
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            TrainingPage = null;
+                        }
+                    );
+            }
+        }
+        public RelayCommand LeaveTraining
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            mainWinVM.AppPage = null;
+                        }
+                    );
+            }
+        }
+        public RelayCommand Again
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            SetQuality(MemoryzationQuality.Again);
+                        }
+                    );
+            }
+        }
+        public RelayCommand Bad
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            SetQuality(MemoryzationQuality.Bad);
+                        }
+                    );
+            }
+        }
+        public RelayCommand Normal
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            SetQuality(MemoryzationQuality.Normal);
+                        }
+                    );
+            }
+        }
+        public RelayCommand Good
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            SetQuality(MemoryzationQuality.Good);
+                        }
+                    );
+            }
+        }
+        public RelayCommand Excellent
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            SetQuality(MemoryzationQuality.Excellent);
+                        }
+                    );
             }
         }
 
-        public TrainingCardViewModel(Model.Deck deck, MainWindowViewModel mainWinVM)
+
+        public TrainingCardViewModel(Deck deck, MainWindowViewModel mainWinVM)
         {
             Deck = deck;
-            CardIndex = 0;
-            //Card = deck[CardIndex];
             this.mainWinVM = mainWinVM;
+
+            CurrentCard = DB.getTrainCard(deck.Id);
+
+            QuestionText = DB.getCardQuestionText(CurrentCard.QuestionMediaId);
+            AnswearText = DB.getCardAnswearText(CurrentCard.AnswearMediaId);
         }
 
-        private void ProcessingRememberingResult(Remembered remembered = Remembered.Terminate, bool froceTerminate = true)
+        #region Images
+        public BitmapImage RollUpIcon
         {
-            // логика для интервалов от remembered
-            //if (froceTerminate)
-            //{
-            //    mainWinVM.AppPage = null;
-            //    return;
-            //}
-            //else if (Deck.hasNext(CardIndex + 1))
-            //    Card = Deck[++CardIndex];
-            //else
-            //    mainWinVM.AppPage = null;
-
+            get
+            {
+                return MainWindowViewModel.ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\RollUpMenu.png");
+            }
         }
+        #endregion
     }
 }

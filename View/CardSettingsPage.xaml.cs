@@ -10,26 +10,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using KursovoiProectCSharp.Model;
 using KursovoiProectCSharp.ViewModel;
 
 namespace KursovoiProectCSharp.View
-{    
-    public partial class RegisterPage : Page
+{
+    /// <summary>
+    /// Логика взаимодействия для CardSettingsPage.xaml
+    /// </summary>
+    public partial class CardSettingsPage : Page
     {
-        public RegisterPage(MainWindowViewModel mainWinVM)
-        {
-            InitializeComponent();            
-
-            DataContext = new RegisterViewModel(mainWinVM);
-        }
-        
-        public RegisterPage(User _user)
+        public CardSettingsPage(TrainingCardViewModel trainingCardVM)
         {
             InitializeComponent();
 
-            DataContext = new RegisterViewModel(_user);
+            DataContext = trainingCardVM;
         }
-
     }
 }

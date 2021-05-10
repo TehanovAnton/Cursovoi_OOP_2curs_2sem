@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KursovoiProectCSharp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:uc="clr-namespace:KursovoiProectCSharp.CustomControls" d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
+        xmlns:local="clr-namespace:KursovoiProectCSharp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="500"
         WindowStyle="None" AllowsTransparency="True"
@@ -12,12 +13,12 @@
     <Grid Margin="9 9 9 9">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <uc:MainPanel/>
+                <Frame NavigationUIVisibility="Hidden" Content="{Binding MainPanelPage}"/>
             </Grid>
 
             <Grid Grid.Row="1">

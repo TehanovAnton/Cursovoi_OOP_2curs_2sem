@@ -1,0 +1,57 @@
+﻿<Page x:Class="KursovoiProectCSharp.View.MainPanelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KursovoiProectCSharp.View"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="500"
+      Title="MainPanelPage" Background="White">
+
+    <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
+        <Grid>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseEnter">
+                    <i:InvokeCommandAction Command="{Binding Refresh}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Style="{DynamicResource MenuIcon}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding SetMaenuPage}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <Image Source="{Binding MenuIcon}"/>
+            </Button>
+
+            <Button Grid.Column="2" Style="{DynamicResource CloseIcon}" Command="{Binding CloseApp}">
+                <Image x:Name="closeicon" Source="{Binding CloseIcon}"/>
+            </Button>
+
+            <StackPanel Grid.Column="1">
+                <Label Content="Main Panel" FontSize="30"
+                               HorizontalAlignment="Center"/>
+
+                <!--user info-->
+                <Border BorderBrush="Black" BorderThickness="3" CornerRadius="10">
+                    <StackPanel >
+                        <Label Content="{Binding NickName}" IsEnabled="False" FontSize="30"
+                               HorizontalAlignment="Center"/>
+
+                        <Label Content="{Binding Mail}" IsEnabled="False" FontSize="30"
+                               HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>

@@ -17,21 +17,13 @@ namespace KursovoiProectCSharp
 {
     public class MainWindowViewModel : NotifyPropertyChanged
     { 
-        public static Window appWin { get; set; }
+        public static MainWindow appWin { get; set; }
         public User user { get; set; }
 
 
-        public string Title
-        {
-            get { return "Main Panel"; }
-        }
+        #region Pages        
 
-
-        #region Pages
         private Page appPage;
-        private Page deckListPage;
-
-
         public Page AppPage
         {
             get { return appPage; }
@@ -41,6 +33,8 @@ namespace KursovoiProectCSharp
                 OnPropertyChanged("AppPage");
             }
         }
+
+        private Page deckListPage;
         public Page DeckListPage
         {
             get { return deckListPage; }
@@ -50,46 +44,43 @@ namespace KursovoiProectCSharp
                 OnPropertyChanged("DeckListPage");
             }
         }
+
+        private Page mainPanelPage;
+        public Page MainPanelPage
+        {
+            get
+            {
+                return mainPanelPage;
+            }
+            set
+            {
+                mainPanelPage = value;
+                OnPropertyChanged("MainPanelPage");
+            }
+        }
         #endregion
 
 
         #region Commands
-        private RelayCommand addDeck;
         public RelayCommand AddDeck
         {
             get
             {
-                return addDeck ?? new RelayCommand(
+                return new RelayCommand(
                         obj =>
                         {
                             (new NewDeck(user)).ShowDialog();
                         }
                     );
             }
-        }      
+        }             
 
 
-        private RelayCommand setAppPage;
-        public RelayCommand SetAppPage
-        {
-            get
-            {
-                return setAppPage ?? new RelayCommand(
-                        obj =>
-                        {
-                            AppPage = new View.MenuPage(this);
-                        }
-                    );
-            }
-        }
-
-
-        private RelayCommand removeAppPage;
         public RelayCommand RemoveAppPage
         {
             get
             {
-                return removeAppPage ?? new RelayCommand(
+                return new RelayCommand(
                         obj =>
                         {
                             AppPage = null;
@@ -99,30 +90,14 @@ namespace KursovoiProectCSharp
         }
 
 
-        private RelayCommand setDeckListPage;
         public RelayCommand SetDeckListPage
         {
             get
             {
-                return setDeckListPage ?? new RelayCommand(
+                return new RelayCommand(
                         obj =>
                         {
                             DeckListPage = new View.DeckListPage(this);
-                        }
-                    );
-            }
-        }
-
-
-        private RelayCommand closeApp;
-        public RelayCommand CloseApp
-        {
-            get
-            {
-                return closeApp ?? new RelayCommand(
-                        obj =>
-                        {
-                            appWin.Close();
                         }
                     );
             }
@@ -132,7 +107,8 @@ namespace KursovoiProectCSharp
 
         public MainWindowViewModel()
         {
-            DeckListPage = new View.DeckListPage(this);
+            DeckListPage = new DeckListPage(this);
+            MainPanelPage = new MainPanelPage(this);
         }
 
 
@@ -144,20 +120,6 @@ namespace KursovoiProectCSharp
             logo.UriSource = new Uri(imgPath);
             logo.EndInit();
             return logo;
-        }
-        public BitmapImage MenuIcon
-        {
-            get
-            {
-                return ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\MenuIcon.png");
-            }
-        }
-        public BitmapImage CloseIcon
-        {
-            get
-            {
-                return ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\CloseIcon.png");
-            }
         }
         #endregion
     }

@@ -1,5 +1,5 @@
-﻿using System;
-
+﻿using KursovoiProectCSharp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,16 +12,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KursovoiProectCSharp.CustomControls
+namespace KursovoiProectCSharp.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainPanel.xaml
+    /// Логика взаимодействия для MainPanelPage.xaml
     /// </summary>
-    public partial class MainPanel : UserControl
+    public partial class MainPanelPage : Page
     {
-        public MainPanel()
+        public MainPanelPage(MainWindowViewModel mainWinVM)
         {
             InitializeComponent();
+
+            DataContext = new MainPanelViewModel(mainWinVM);
         }
     }
 }

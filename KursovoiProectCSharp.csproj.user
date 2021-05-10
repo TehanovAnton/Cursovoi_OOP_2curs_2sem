@@ -7,10 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="CustomControls\MainPanel.xaml.cs">
+    <Compile Update="View\CardSettingsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ChangeDeckTitle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditCardPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MainPanelPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\NewDeck.xaml.cs">
@@ -42,13 +48,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="CustomControls\MainPanel.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Resources\MainWindowResources.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\CardSettingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\ChangeDeckTitle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditCardPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainPanelPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\NewDeck.xaml">

@@ -24,7 +24,6 @@ namespace KursovoiProectCSharp
         public static User getUser(string password, string nickname)
         {
             var u = context.Users.First(u => u.Password == password && u.NickName == nickname);
-            u.UserInfo = getUserInfo(u.Id);
             return u;
         }
         public static int getUserId(string password, string nickname)
@@ -33,13 +32,12 @@ namespace KursovoiProectCSharp
         }
         public static UserInfo getUserInfo(int userId)
         {
-            return context.UsersInfo.First(u => u.UserId == userId);
+            var exist = context.UsersInfo.Where(u => u.UserId == userId).Count() == 1;
+            return exist ? context.UsersInfo.First(u => u.UserId == userId) : new UserInfo();
         }
         public static List<User> getSavedUsers()
         {
             var savedList = context.Users.Where(i => i.SavedLog).ToList();
-            foreach (var u in savedList)
-                u.UserInfo = getUserInfo(u.Id);
             return savedList;
         }
 
@@ -54,12 +52,6 @@ namespace KursovoiProectCSharp
             context.UsersInfo.Add(userInfo);
             context.SaveChanges();
         }
-        //public static void removeFromSavedList(int userId)
-        //{
-        //    var savedUser = context.SavedUsers.First(s => s.UserId == userId);
-        //    context.SavedUsers.Remove(savedUser);
-        //    context.SaveChanges();
-        //}
 
 
         public static bool IsDeck(string title, string password, string nickname)
@@ -85,6 +77,10 @@ namespace KursovoiProectCSharp
             DB.context.Decks.Remove(deck);
             DB.context.SaveChanges();
         }
+        public static int getDeckCardCount(int deckId)
+        {
+            return context.Cards.Where(c => c.DeckId == deckId).ToList().Count;
+        }
 
 
         public static void addCard(Card card)
@@ -95,6 +91,38 @@ namespace KursovoiProectCSharp
         public static List<Card> getCards(Deck deck)
         {
             return context.Cards.Where(c => c.DeckId == deck.Id).ToList();
+        }
+        //public static Card getCard(int Card)
+        //{
+
+        //}
+        public static Card getTrainCard(int deckId)
+        {
+            var trainCards = context.Cards.Where(c => c.DeckId == deckId).ToList()
+                .Where(c => MemoryzationCategory.isTimeTrain(c.lastAnswearTime, c.Quality)).ToList();
+
+            Card c = trainCards.Count != 0 ? trainCards[0] : null;
+            return c;
+        }
+        public static void changeMemoryzationCategory(Card card, MemoryzationQuality quality)
+        {
+            card.Quality = quality;
+            context.SaveChanges();
+        }
+        public static string getCardQuestionText(int questionId)
+        {
+            var t = context.Medias.First(m => m.Id == questionId && m.Type == MediaType.Question).Text;
+            return t;
+        }
+        public static string getCardAnswearText(int answearId)
+        {
+            var t = context.Medias.First(m => m.Id == answearId && m.Type == MediaType.Answear).Text;
+            return t;
+        }
+        public static Media getMedia(int mediaId)
+        {
+            var media = context.Medias.First(m => m.Id == mediaId);
+            return media;
         }
     }
 }
