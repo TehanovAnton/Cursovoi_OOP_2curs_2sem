@@ -6,10 +6,64 @@
       xmlns:local="clr-namespace:KursovoiProectCSharp.View"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="500"
+      Height="auto" Width="auto"
       Title="MainPanelPage" Background="White">
 
-    <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
+    <Grid>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseEnter">
+                <i:InvokeCommandAction Command="{Binding Refresh}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+
+        <!--Buttons-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Style="{DynamicResource ButtonBorder}">
+                <Button Command="{Binding SetMaenuPage}" >
+                    <Image Source="C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\Menu.png" Height="65" Width="65"/>
+                </Button>
+            </Border>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                
+                <!--MainPanel-->
+                <Label Grid.Row="0" Content="Main Panel" FontSize="50"
+                   HorizontalAlignment="Center"/>
+
+                <!--Info-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="{Binding NickName}" FontSize="30"
+                               HorizontalAlignment="Center"/>
+
+                    <Label Grid.Column="1" Content="{Binding Mail}" FontSize="30"
+                               HorizontalAlignment="Center"/>
+                </Grid>
+            </Grid>
+
+            <Border Grid.Column="2" Style="{DynamicResource ButtonBorder}">
+                <Button Command="{Binding CloseApp}">
+                    <Image Source="C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\Close.png" Height="65" Width="65"/>
+                </Button>
+            </Border>
+        </Grid>
+    </Grid>
+
+    <!--<Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
         <Grid>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseEnter">
@@ -41,7 +95,7 @@
                 <Label Content="Main Panel" FontSize="30"
                                HorizontalAlignment="Center"/>
 
-                <!--user info-->
+                --><!--user info--><!--
                 <Border BorderBrush="Black" BorderThickness="3" CornerRadius="10">
                     <StackPanel >
                         <Label Content="{Binding NickName}" IsEnabled="False" FontSize="30"
@@ -53,5 +107,5 @@
                 </Border>
             </StackPanel>
         </Grid>
-    </Border>
+    </Border>-->
 </Page>

@@ -8,22 +8,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using KursovoiProectCSharp.ViewModel;
-using KursovoiProectCSharp.Model;
 
 namespace KursovoiProectCSharp.View
 {
     /// <summary>
-    /// Логика взаимодействия для NewDeck.xaml
+    /// Логика взаимодействия для Page1.xaml
     /// </summary>
-    public partial class NewDeck : Page
+    public partial class Page1 : Page
     {
-        public NewDeck(User user, MainWindowViewModel MainWindowVM)
+        public Page1()
         {
             InitializeComponent();
-
-            DataContext = new NewDeckViewModel(user, MainWindowVM);
         }
     }
 }

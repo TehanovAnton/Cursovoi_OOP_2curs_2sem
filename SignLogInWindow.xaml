@@ -3,41 +3,98 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KursovoiProectCSharp"
+        xmlns:local="clr-namespace:KursovoiProectCSharp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="SignLogInWindow" Height="450" Width="800">
-    
+
     <Grid>
-        <StackPanel>
-            <Label Content="{Binding MessageLabel}" FontSize="30" 
-               HorizontalAlignment="Center"/>
-            
-            <Label Content="NickName" FontSize="30" 
-               HorizontalAlignment="Center"/>
-            <TextBox x:Name="nickNameInput" 
-                     Text="{Binding _NickName}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <Label Content="Password" FontSize="30" 
-               HorizontalAlignment="Center"/>
-            <TextBox x:Name="passwordInput" 
-                     Text="{Binding _Password}"/>
+            <!--Fields-->
+            <StackPanel Grid.Column="0" Style="{DynamicResource StackPanel}">
+                <GroupBox Header="NickName">
+                    <TextBox Text="{Binding _NickName}"/>
+                </GroupBox>
 
-            <Button Content="Log In" 
-                    Command="{Binding LogInUser}"/>
+                <GroupBox Header="Password">
+                    <TextBox Text="{Binding _Password}"/>
+                </GroupBox>
 
-            <Button Content="Register" 
-                    Command="{Binding Register}"/>
+                <!--Log in / Register-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked="{Binding SavePassword}"/>
-                <Label Content="Save password"/>
+                    <Border Grid.Column="0" Style="{DynamicResource ButtonBorder}">
+                        <Button Content="Log In" Command="{Binding LogInUser}"/>
+                    </Border>
+
+                    <Border Grid.Column="1" Style="{DynamicResource ButtonBorder}">
+                        <Button Content="Register" Command="{Binding Register}"/>
+                    </Border>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox Grid.Column="0" Style="{DynamicResource CheckBox}"
+                              IsChecked="{Binding SavePassword}"/>
+                    <Label Grid.Column="1" Content="Save LogInfo"/>
+                </Grid>
             </StackPanel>
 
-            <Frame NavigationUIVisibility="Hidden" 
-                   Content="{Binding SavedListPage}"/>
-        </StackPanel>
+            <!--Saved logins-->
+            <StackPanel Grid.Column="1" Style="{DynamicResource StackPanel}">
+                <Grid>
+                    <ScrollViewer  CanContentScroll="True">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseEnter">
+                                <i:InvokeCommandAction Command="{Binding Refresh}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                        <ListBox x:Name="SelelctionChanged" ItemsSource="{Binding Users}"
+                         SelectedItem="{Binding SelectedUser}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding SetSavedLog}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Path=NickName}"
+                                         FontSize="18"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Path=UserInfo.Fio}"
+                                                Margin="2 2 2 2"/>
+                                            <TextBlock 
+                                                Text="{Binding Path=UserInfo.Mail}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </Grid>
+            </StackPanel>
+        </Grid>
 
         <Frame NavigationUIVisibility="Hidden"
-               Content="{Binding LogSignInPage}"/>
+               Content="{Binding LogSignInPage}" Grid.RowSpan="2"/>
     </Grid>
 </Window>

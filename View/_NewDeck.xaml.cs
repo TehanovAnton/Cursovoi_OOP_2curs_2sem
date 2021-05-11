@@ -8,9 +8,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using KursovoiProectCSharp.ViewModel;
-using KursovoiProectCSharp.Model;
 
 namespace KursovoiProectCSharp.View
 {
@@ -19,11 +18,9 @@ namespace KursovoiProectCSharp.View
     /// </summary>
     public partial class NewDeck : Page
     {
-        public NewDeck(User user, MainWindowViewModel MainWindowVM)
+        public NewDeck()
         {
             InitializeComponent();
-
-            DataContext = new NewDeckViewModel(user, MainWindowVM);
         }
     }
 }

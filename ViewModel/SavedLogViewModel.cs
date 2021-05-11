@@ -69,29 +69,6 @@ namespace KursovoiProectCSharp.ViewModel
             }
         }
 
-        //public RelayCommand KeyEventCommands
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand(
-        //                obj =>
-        //                {
-        //                    object[] args = obj as object[];
-        //                    KeyEventArgs e = args[1] as KeyEventArgs;
-
-        //                    if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
-        //                    {
-        //                        //Remove user SaveList
-        //                        if (e.Key == Key.Delete)
-        //                        {
-        //                            DB.removeFromSavedList(SelectedUser.Id);
-        //                        }
-        //                    }
-        //                }
-        //            );
-        //    }
-        //}
-
 
         public SavedLogViewModel(SignLogInViewModel SignLogInWinVM)
         {

@@ -19,9 +19,6 @@
     <Compile Update="View\MainPanelPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\NewDeck.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="SignLogInWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +34,12 @@
     <Compile Update="View\MenuPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\_NewDeck.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Page1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SavedLogPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -48,7 +51,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Resources\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\SignLogInStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CardSettingsPage.xaml">
@@ -61,9 +70,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainPanelPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\NewDeck.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SignLogInWindow.xaml">
@@ -79,6 +85,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MenuPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\NewDeck.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Page1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SavedLogPage.xaml">

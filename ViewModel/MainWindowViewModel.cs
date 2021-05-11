@@ -69,13 +69,11 @@ namespace KursovoiProectCSharp
                 return new RelayCommand(
                         obj =>
                         {
-                            (new NewDeck(user)).ShowDialog();
+                            AppPage = new NewDeck(user, this);
                         }
                     );
             }
         }             
-
-
         public RelayCommand RemoveAppPage
         {
             get
@@ -88,8 +86,6 @@ namespace KursovoiProectCSharp
                     );
             }
         }
-
-
         public RelayCommand SetDeckListPage
         {
             get

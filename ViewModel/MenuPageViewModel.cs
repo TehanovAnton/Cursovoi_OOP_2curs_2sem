@@ -45,7 +45,6 @@ namespace KursovoiProectCSharp.ViewModel
             }
         }
 
-
         #region ImageBMP
         public BitmapImage RollUpIcon
         {

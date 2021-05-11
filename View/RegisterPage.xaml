@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KursovoiProectCSharp.View" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="500"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="RegisterPage" Background="White">
 
     <Grid>
@@ -13,8 +13,50 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <!--выбор фото-->
+
+        <!--поля user-->
         <StackPanel Grid.Column="0">
+            <GroupBox Header="NickName" BorderBrush="Black" 
+                      BorderThickness="2" Margin="4 4 4 4">
+                <TextBox Text="{Binding _NickName}" BorderBrush="White"/>
+            </GroupBox>
+            
+            <GroupBox Header="Password" BorderBrush="Black" 
+                      BorderThickness="2" Margin="4 4 4 4">
+                <TextBox Text="{Binding _Password}" BorderBrush="White"/>
+            </GroupBox>
+
+            <GroupBox Header="Fio" BorderBrush="Black" 
+                      BorderThickness="2" Margin="4 4 4 4">
+                <TextBox Text="{Binding _Fio}" BorderBrush="White"/>
+            </GroupBox>
+
+            <GroupBox Header="Mail" BorderBrush="Black" 
+                      BorderThickness="2" Margin="4 4 4 4">
+                <TextBox Text="{Binding _Mail}" BorderBrush="White"/>
+            </GroupBox>
+
+            <GroupBox Header="BirtDay" BorderBrush="Black" 
+                      BorderThickness="2" Margin="4 4 4 4">
+                <DatePicker SelectedDate="{Binding _BirthDay}" BorderBrush="White"/>
+            </GroupBox>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Register" Margin="4 4 4 4"
+                        Command="{Binding Register}" BorderBrush="White"/>
+
+                <Button Grid.Column="1" Content="Back" Margin="4 4 4 4"
+                        Command="{Binding BackToLogIn}" BorderBrush="White"/>
+            </Grid>
+        </StackPanel>
+
+        <!--выбор фото-->
+        <StackPanel Grid.Column="1" Margin="4 4 4 4">
             <Image Margin="2 2 2 2" Width="238" Height="220" 
                    Source="{Binding _Image}">
 
@@ -24,54 +66,6 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Image>
-        </StackPanel>
-        <!--поля user-->
-        <StackPanel Grid.Column="1">
-            <Button Content="Back" Command="{Binding BackToLogIn}"/>
-            <Border BorderThickness="5" BorderBrush="Black"
-                    CornerRadius="10" Margin="2 2 2 2">
-                <StackPanel Margin="2 2 2 2">
-                    <Label Content="Password" Margin="0 0 0 0"/>
-                    <TextBox BorderBrush="White"
-                             Text="{Binding _Password}"/>
-                </StackPanel>
-            </Border>
-            <Border BorderThickness="5" BorderBrush="Black"
-                    CornerRadius="10" Margin="2 2 2 2">
-                <StackPanel Margin="2 2 2 2">
-                    <Label Content="NickName" Margin="0 0 0 0"/>
-                    <TextBox BorderBrush="White"
-                             Text="{Binding _NickName}"/>
-                </StackPanel>
-            </Border>
-            <Border BorderThickness="5" BorderBrush="Black"
-                    CornerRadius="10">
-                <StackPanel Margin="2 2 2 2">
-                    <Label Content="Fio" Margin="0 0 0 0"/>
-                    <TextBox BorderBrush="White"
-                             Text="{Binding _Fio}"/>
-                </StackPanel>
-            </Border>
-
-            <Border BorderThickness="5" BorderBrush="Black"
-                    CornerRadius="10" Margin="0 2 0 0">
-                <StackPanel Margin="2 2 2 2">
-                    <Label Content="Mail" Margin="0 0 0 0"/>
-                    <TextBox BorderBrush="White"
-                             Text="{Binding _Mail}"/>
-                </StackPanel>
-            </Border>
-
-            <Border BorderThickness="5" BorderBrush="Black"
-                    CornerRadius="10" Margin="0 2 0 0">
-                <StackPanel Margin="2 2 2 2">
-                    <Label x:Name="birthday" Content="Birthday" 
-                           Margin="0 0 0 0"/>
-                    <DatePicker SelectedDate="{Binding _BirthDay}"/>
-                </StackPanel>
-            </Border>
-            <Button Content="Register" Command="{Binding Register}"
-                    Margin="3 3 3 3"/>
         </StackPanel>
     </Grid>
 </Page>

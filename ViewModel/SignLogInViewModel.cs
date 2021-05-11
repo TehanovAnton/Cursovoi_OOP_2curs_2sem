@@ -6,25 +6,16 @@ using KursovoiProectCSharp.Model;
 using KursovoiProectCSharp.View;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 
 namespace KursovoiProectCSharp.ViewModel
 {
     public class SignLogInViewModel : NotifyPropertyChanged
     {
         public static SignLogInWindow SignLogInWin { get; set; }       
+        public MainWindowViewModel MainWindowVM { get; set; }
 
-
-        private MainWindowViewModel mainWindowVM;
-        public MainWindowViewModel MainWindowVM
-        {
-            get { return mainWindowVM; }
-            set
-            {
-                mainWindowVM = value;
-            }
-        }
-
-
+        #region Page
         private Page logSignInPage;
         public Page LogSignInPage
         {
@@ -35,19 +26,29 @@ namespace KursovoiProectCSharp.ViewModel
                 OnPropertyChanged("LogSignInPage");
             }
         }
+        #endregion
 
-
-        private Page savedListPage;
-        public Page SavedListPage
+        #region Fields
+        private ObservableCollection<User> users;
+        public ObservableCollection<User> Users
         {
-            get
-            {
-                return savedListPage;
-            }
+            get { return users; }
             set
             {
-                savedListPage = value;
-                OnPropertyChanged("SavedListPage");
+                users = value;
+                OnPropertyChanged("Users");
+            }
+        }
+
+
+        private User selectedUser;
+        public User SelectedUser
+        {
+            get { return selectedUser; }
+            set
+            {
+                selectedUser = value;
+                OnPropertyChanged("SelectedUser");
             }
         }
 
@@ -104,8 +105,9 @@ namespace KursovoiProectCSharp.ViewModel
                 OnPropertyChanged("_NickName");
             }
         }
+        #endregion
 
-        
+        #region Command
         public RelayCommand LogInUser
         {
             get
@@ -152,18 +154,50 @@ namespace KursovoiProectCSharp.ViewModel
                 return new RelayCommand(
                         obj =>
                         {
-                            LogSignInPage = new RegisterPage(mainWindowVM);
+                            LogSignInPage = new RegisterPage(MainWindowVM);
                         }
                     );
             }
         }
+        public RelayCommand Refresh
+        {
+            get
+            {
+                return new RelayCommand(
+                  obj =>
+                  {
+                      Users.Clear();
 
+                      var savedList = DB.getSavedUsers();
+                      foreach (var d in savedList)
+                          Users.Add(d);
+                  }
+              );
+            }
+        }
+        public RelayCommand SetSavedLog
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            if (SelectedUser != null)
+                            {
+                                _Password = SelectedUser.Password;
+                                _NickName = SelectedUser.NickName;
+                            }
+                        }
+                    );
+            }
+        }
+        #endregion
 
         public SignLogInViewModel(SignLogInWindow SignLogInWin)
         {
             this.MainWindowVM = new MainWindowViewModel();
             SignLogInViewModel.SignLogInWin = SignLogInWin;
-            this.SavedListPage = new SavedLogPage(this);
+            Users = new ObservableCollection<User>();
 
             MessageLabel = "Welcome";
             _Password = "1";

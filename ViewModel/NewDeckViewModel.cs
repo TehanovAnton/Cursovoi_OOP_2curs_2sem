@@ -8,7 +8,7 @@ namespace KursovoiProectCSharp.ViewModel
 {
     public class NewDeckViewModel
     {
-        private NewDeck Win { get; set; }
+        public MainWindowViewModel MainWindowVM { get; set; }
         private User _User { get; set; }
         public string _Title { get; set; }
 
@@ -24,8 +24,9 @@ namespace KursovoiProectCSharp.ViewModel
                             {
                                 Title = _Title,
                                 UserId = _User.Id
-                            });                            
-                            Win.DialogResult = true;
+                            });
+
+                            MainWindowVM.AppPage = null;
                         }
                         else
                         {
@@ -35,11 +36,23 @@ namespace KursovoiProectCSharp.ViewModel
                 ); 
             }
         }
-
-
-        public NewDeckViewModel(User user, NewDeck thisWin)
+        public RelayCommand CloseMenu
         {
-            Win = thisWin;
+            get
+            {
+                return new RelayCommand(
+                    obj =>
+                    {
+                        MainWindowVM.AppPage = null;
+                    }
+                );
+            }
+        }
+
+
+        public NewDeckViewModel(User user, MainWindowViewModel MainWindowVM)
+        {
+            this.MainWindowVM = MainWindowVM;
             _User = user;
         }
     }

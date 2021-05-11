@@ -78,18 +78,6 @@ namespace KursovoiProectCSharp.ViewModel
                     );
             }
         }
-        public RelayCommand EnableEditUser
-        {
-            get
-            {
-                return new RelayCommand(
-                        obj =>
-                        {
-                            
-                        }
-                    );
-            }
-        }
 
 
         public BitmapImage MenuIcon

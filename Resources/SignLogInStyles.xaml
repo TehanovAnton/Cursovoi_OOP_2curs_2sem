@@ -1,11 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-
-
-    <Style x:Key="CloseIcon" TargetType="Button">
+    <Style x:Key="CheckBox" TargetType="CheckBox">
         <Style.Setters>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="6 4 4 4"/>
         </Style.Setters>
     </Style>
 </ResourceDictionary>

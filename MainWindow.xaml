@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KursovoiProectCSharp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
-        d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="500"
+        Title="MainWindow" Height="600" Width="800"
         WindowStyle="None" AllowsTransparency="True"
         Background="White" WindowStartupLocation="CenterScreen">
 
@@ -22,13 +21,17 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <StackPanel>
-                    <Border BorderBrush="Black" BorderThickness="0 0 0 5" Margin="2 2 2 2">
-                        <Frame Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
-                    </Border>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Frame Grid.Row="0" Content="{Binding DeckListPage}" NavigationUIVisibility="Hidden"/>
 
-                    <Button Content="AddDeck" Command="{Binding AddDeck}"/>
-                </StackPanel>
+                    <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
+                        <Button Content="Add Deck" Command="{Binding AddDeck}"/>
+                    </Border>
+                </Grid>
             </Grid>
         </Grid>
 

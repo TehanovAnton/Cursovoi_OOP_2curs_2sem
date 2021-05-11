@@ -14,21 +14,37 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Background="Gray">
-            <Button Background="Gray" Style="{DynamicResource CloseIcon}" Command="{Binding CloseMenu}">
-                <Image Width="30" Height="30" Source="{Binding RollUpIcon}"/>
-            </Button>
-            
-            <Button HorizontalContentAlignment="Center" Margin="4 4 4 4"
-                    Command="{Binding SetBroseDeckPage}">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="{Binding FindIcon}" Height="30" Width="auto"/>
-                    <Label Content="Browse decks"/>
-                </StackPanel>
-            </Button>
+        <Grid Grid.Column="0" Background="Gray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <Button Content="Edit User" Command="{Binding EditUser}"/>
-        </StackPanel>
+            <Grid Grid.Row="0">
+                <Border HorizontalAlignment="Right" Style="{DynamicResource ButtonBorder}" Width="45" Height="45">
+                    <Button Command="{Binding CloseMenu}" Height="29.96" Width="29.96">
+                        <Image Source="C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\Close.png" Height="29.96" Width="29.96"/>
+                    </Button>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Style="{DynamicResource ButtonBorder}">
+                        <Button Content="Browse Decks" Command="{Binding SetBroseDeckPage}"/>
+                    </Border>
+
+                    <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
+                        <Button Content="Edit user" Command="{Binding CloseMenu}"/>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
 
         <StackPanel Grid.Column="1" Background="White" Opacity="0.8"></StackPanel>
     </Grid>
