@@ -5,27 +5,81 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KursovoiProectCSharp.View" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:local1="clr-namespace:KursovoiProectCSharp.ViewModel"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Height="450" Width="450"
       Title="AddCardPage" Background="White">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
-            <Label Content="Question"/>
-            <TextBox Text="{Binding _Question}"
-                     Margin="5 5 5 5"/>
-        </StackPanel>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1">
-            <Label Content="Answer"/>
-            <TextBox Text="{Binding _Answear}" Margin="5 5 5 5"/>            
+            <GroupBox Grid.Row="0" Header="Question">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0" Text="{Binding _Question}" Margin="4 4 4 4"/>
+
+                    <Image Grid.Row="1" 
+                           Source="{Binding QuestionImage}">
+                    </Image>
+                </Grid>
+            </GroupBox>
+
+            <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Add question image" Command="{Binding SetQuestionImage}"/>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="0" Header="Answear">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0" Text="{Binding _Answear}" Margin="4 4 4 4"/>
+
+                    <Image Grid.Row="1" 
+                           Source="{Binding AnswearImage}">
+                    </Image>
+                </Grid>
+            </GroupBox>
+
+            <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Add answear image" Command="{Binding SetAnswearImage}"/>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             
-            <Button Content="Add Card" Command="{Binding AddCard}"/>
-        </StackPanel>
+            <Border Grid.Column="0" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Add card" Command="{Binding AddCard}"/>
+            </Border>
+
+            <Border Grid.Column="1" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Back" Command="{Binding Back}"/>
+            </Border>
+        </Grid>
     </Grid>
 </Page>

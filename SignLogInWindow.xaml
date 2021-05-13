@@ -67,7 +67,7 @@
                         </i:Interaction.Triggers>
 
                         <ListBox x:Name="SelelctionChanged" ItemsSource="{Binding Users}"
-                         SelectedItem="{Binding SelectedUser}">
+                                 SelectedItem="{Binding SelectedUser}" BorderBrush="{x:Null}">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged">
                                     <i:InvokeCommandAction Command="{Binding SetSavedLog}"/>
@@ -78,7 +78,7 @@
                                 <DataTemplate>
                                     <StackPanel>
                                         <TextBlock Text="{Binding Path=NickName}"
-                                         FontSize="18"/>
+                                                   FontSize="18"/>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding Path=UserInfo.Fio}"
                                                 Margin="2 2 2 2"/>
@@ -86,6 +86,13 @@
                                                 Text="{Binding Path=UserInfo.Mail}"/>
                                         </StackPanel>
                                     </StackPanel>
+
+                                    <!--<Border BorderBrush="Black" BorderThickness="4 0 0 0">
+                                        <StackPanel Margin="4 0 0 0">
+                                            <TextBlock Text="{Binding Path=UserInfo.Fio}" FontSize="20" FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding Path=UserInfo.Mail}" FontSize="15" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </Border>-->
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>

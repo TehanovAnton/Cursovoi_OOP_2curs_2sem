@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:KursovoiProectCSharp.View" 
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
       d:DataContext="{d:DesignInstance Type=local:DeckListViewModel}"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"  
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DeckListPage"
       Background="White">

@@ -4,7 +4,6 @@ using System.Text;
 using KursovoiProectCSharp.Model;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 
 namespace KursovoiProectCSharp
 {
@@ -38,6 +37,12 @@ namespace KursovoiProectCSharp
         public static List<User> getSavedUsers()
         {
             var savedList = context.Users.Where(i => i.SavedLog).ToList();
+            foreach (User user in savedList)
+            {
+                var ui = context.UsersInfo.First(i => i.UserId == user.Id);
+                user.UserInfo = ui;        
+            }    
+
             return savedList;
         }
 
@@ -92,10 +97,14 @@ namespace KursovoiProectCSharp
         {
             return context.Cards.Where(c => c.DeckId == deck.Id).ToList();
         }
-        //public static Card getCard(int Card)
-        //{
-
-        //}
+        public static void removeCard(Card card)
+        {
+            var medias = context.Medias.Where(m => m.Id == card.QuestionMediaId || m.Id == card.AnswearMediaId).ToList();
+            foreach (Media m in medias)
+                context.Medias.Remove(m);
+            context.Cards.Remove(card);
+            context.SaveChanges();
+        }
         public static Card getTrainCard(int deckId)
         {
             var trainCards = context.Cards.Where(c => c.DeckId == deckId).ToList()

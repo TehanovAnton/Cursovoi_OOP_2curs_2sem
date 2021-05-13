@@ -8,38 +8,58 @@
       d:DesignHeight="600" d:DesignWidth="500"
       Title="TrainingCardPage"
       Background="White">
-
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <!--setting-->
             <Grid Grid.Row="0">
-                <Button HorizontalAlignment="Left"
-                        FontSize="20" Margin="434,0,0,0"
-                        Command="{Binding SetCardSettingPage}">
-                    <Image Width="30" Height="30" Source="{Binding RollUpIcon}"/>
-                </Button>
+                <Border HorizontalAlignment="Right" Style="{DynamicResource ButtonBorder}" Width="40" Height="40">
+                    <Button Command="{Binding SetCardSettingPage}" Height="20" Width="20">
+                        <Image Source="C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\Menu.png" Height="20" Width="20"/>
+                    </Button>
+                </Border>
             </Grid>
 
-            <!--question-->
-            <Border BorderBrush="Black" BorderThickness="0 0 0 5"
-                Grid.Row="1" Margin="10 10 10 10">
-                <TextBlock Text="{Binding QuestionText}" Margin="0,10,0,5" 
-                       TextAlignment="Center" FontSize="20"/>
-            </Border>
+            <!--Question-->
+            <Grid Grid.Row="1">
+                <GroupBox Grid.Row="0" Header="Question">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-            <!--answer-->
-            <Border BorderBrush="Black" BorderThickness="0 0 0 5" 
-                Grid.Row="2" Margin="10 10 10 10">
-                <TextBlock Text="{Binding AnswearText}" Grid.Row="1" TextAlignment="Center" 
-                       FontSize="20"/>
-            </Border>
+                        <TextBlock Grid.Row="0" Text="{Binding QuestionText}" Margin="4 4 4 4"/>
+
+                        <Image Grid.Row="1" 
+                           Source="{Binding QuestionImage}">
+                        </Image>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+
+            <!--Answear-->
+            <Grid Grid.Row="2">
+                <GroupBox Header="Answear">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Text="{Binding AnswearText}" Margin="4 4 4 4"/>
+
+                        <Image Grid.Row="1" 
+                           Source="{Binding AnswearImage}">
+                        </Image>
+                    </Grid>
+                </GroupBox>
+            </Grid>
 
             <!--result buttons-->
             <Grid Grid.Row="3">

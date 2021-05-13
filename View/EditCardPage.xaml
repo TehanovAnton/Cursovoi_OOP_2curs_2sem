@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:KursovoiProectCSharp.View"
+      xmlns:local="clr-namespace:KursovoiProectCSharp.View" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EditCardPage" Background="White">
@@ -12,20 +12,74 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
-            <Label Content="Question"/>
-            <TextBox Text="{Binding QuestionText}"
-                     Margin="5 5 5 5"/>
-        </StackPanel>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1">
-            <Label Content="Answer"/>
-            <TextBox Text="{Binding AnswearText}" Margin="5 5 5 5"/>
+            <GroupBox Grid.Row="0" Header="Question">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-            <Button Content="Edit Card" Command="{Binding EditCard}"/>
-        </StackPanel>
+                    <TextBox Grid.Row="0" Text="{Binding QuestionText}" Margin="4 4 4 4"/>
+
+                    <Image Grid.Row="1" 
+                           Source="{Binding QuestionImage}">
+                    </Image>
+                </Grid>
+            </GroupBox>
+
+            <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Edit question image" Command="{Binding SetQuestionImage}"/>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="0" Header="Answear">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0" Text="{Binding AnswearText}" Margin="4 4 4 4"/>
+
+                    <Image Grid.Row="1" 
+                           Source="{Binding AnswearImage}">
+                    </Image>
+                </Grid>
+            </GroupBox>
+
+            <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Edit answear image" Command="{Binding SetAnswearImage}"/>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Edit card" Command="{Binding EditCard}"/>
+            </Border>
+
+            <Border Grid.Column="1" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Back" Command="{Binding Back}"/>
+            </Border>
+        </Grid>
     </Grid>
 </Page>

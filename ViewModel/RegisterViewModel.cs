@@ -184,9 +184,9 @@ namespace KursovoiProectCSharp.ViewModel
             _BirthDay = info.BirthDate;
         }
 
-        private static byte[] getImageBytes(BitmapImage image)
+        public static byte[] getImageBytes(BitmapImage image)
         {
-            Uri uri = (image as BitmapImage).UriSource;
+            Uri uri = image.UriSource;
             return File.ReadAllBytes(uri.OriginalString);
         }
     }

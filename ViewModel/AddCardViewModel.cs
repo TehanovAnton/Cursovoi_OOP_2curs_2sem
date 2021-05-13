@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using KursovoiProectCSharp.Model;
+using Microsoft.Win32;
 
 namespace KursovoiProectCSharp.ViewModel
 {
@@ -27,7 +28,6 @@ namespace KursovoiProectCSharp.ViewModel
             }
         }
 
-
         private string _answear;
         public string _Answear
         {
@@ -43,6 +43,76 @@ namespace KursovoiProectCSharp.ViewModel
         }
 
 
+        private BitmapImage questionImage;
+        public BitmapImage QuestionImage
+        {
+            get
+            {
+                return questionImage;
+            }
+            set
+            {
+                questionImage = value;
+                OnPropertyChanged("QuestionImage");
+            }
+        }
+
+        private BitmapImage answearImage;
+        public BitmapImage AnswearImage
+
+        {
+            get
+            {
+                return answearImage;
+            }
+            set
+            {
+                answearImage = value;
+                OnPropertyChanged("AnswearImage");
+            }
+        }
+
+
+        public RelayCommand SetQuestionImage
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            OpenFileDialog dialog = new OpenFileDialog();
+                            if (dialog.ShowDialog() == true)
+                            {
+                                var imageBitMap = new BitmapImage();
+                                imageBitMap.BeginInit();
+                                imageBitMap.UriSource = new Uri(dialog.FileName);
+                                imageBitMap.EndInit();
+                                QuestionImage = imageBitMap;
+                            }
+                        }
+                    );
+            }
+        }
+        public RelayCommand SetAnswearImage
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            OpenFileDialog dialog = new OpenFileDialog();
+                            if (dialog.ShowDialog() == true)
+                            {
+                                var imageBitMap = new BitmapImage();
+                                imageBitMap.BeginInit();
+                                imageBitMap.UriSource = new Uri(dialog.FileName);
+                                imageBitMap.EndInit();
+                                AnswearImage = imageBitMap;
+                            }
+                        }
+                    );
+            }
+        }
         public RelayCommand AddCard
         {
             get
@@ -50,8 +120,8 @@ namespace KursovoiProectCSharp.ViewModel
                 return new RelayCommand(
                         obj =>
                         {
-                            var q = new Media { Text = _Question, Type = MediaType.Question };
-                            var a = new Media { Text = _Question, Type = MediaType.Answear };
+                            var q = new Media { Text = _Question, Image = RegisterViewModel.getImageBytes(QuestionImage), Type = MediaType.Question };
+                            var a = new Media { Text = _Question, Image = RegisterViewModel.getImageBytes(AnswearImage), Type = MediaType.Answear };
                             DB.context.Medias.AddRange(q, a);
                             DB.context.SaveChanges();
 
@@ -64,6 +134,18 @@ namespace KursovoiProectCSharp.ViewModel
                             };
 
                             DB.addCard(c);
+                            mainWinVM.AppPage = null;
+                        }
+                    );
+            }
+        }
+        public RelayCommand Back
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
                             mainWinVM.AppPage = null;
                         }
                     );

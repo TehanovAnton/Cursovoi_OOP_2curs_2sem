@@ -83,13 +83,51 @@ namespace KursovoiProectCSharp.ViewModel
         }
 
 
+        private BitmapImage questionImage;
+        public BitmapImage QuestionImage
+        {
+            get
+            {
+                return questionImage;
+            }
+            set
+            {
+                questionImage = value;
+                OnPropertyChanged("QuestionImage");
+            }
+        }
+
+        private BitmapImage answearImage;
+        public BitmapImage AnswearImage
+
+        {
+            get
+            {
+                return answearImage;
+            }
+            set
+            {
+                answearImage = value;
+                OnPropertyChanged("AnswearImage");
+            }
+        }
+
+
         private void SetQuality(MemoryzationQuality quality)
         {
             DB.changeMemoryzationCategory(CurrentCard, quality);
             CurrentCard.lastAnswearTime = DateTime.Now;
+
             CurrentCard = DB.getTrainCard(Deck.Id);
             if (CurrentCard == null)
                 EndTraining.Execute("");
+            else
+            {
+                QuestionText = DB.getCardQuestionText(CurrentCard.QuestionMediaId);
+                QuestionImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.QuestionMediaId).Image);
+                AnswearText = DB.getCardAnswearText(CurrentCard.AnswearMediaId);
+                AnswearImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.AnswearMediaId).Image);
+            }
         }
 
 
@@ -125,6 +163,27 @@ namespace KursovoiProectCSharp.ViewModel
                         obj =>
                         {
                             TrainingPage = new EditCardPage(CurrentCard, this);
+                        }
+                    );
+            }
+        }
+        public RelayCommand DeleteCard
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            DB.removeCard(CurrentCard);
+                            CurrentCard = DB.getTrainCard(Deck.Id);
+                            if (CurrentCard == null)
+                                EndTraining.Execute("");
+                            else
+                            {
+                                QuestionText = DB.getCardQuestionText(CurrentCard.QuestionMediaId);
+                                AnswearText = DB.getCardAnswearText(CurrentCard.AnswearMediaId);
+                                TrainingPage = null;
+                            }
                         }
                     );
             }
@@ -223,7 +282,10 @@ namespace KursovoiProectCSharp.ViewModel
             CurrentCard = DB.getTrainCard(deck.Id);
 
             QuestionText = DB.getCardQuestionText(CurrentCard.QuestionMediaId);
+            QuestionImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.QuestionMediaId).Image);
+
             AnswearText = DB.getCardAnswearText(CurrentCard.AnswearMediaId);
+            AnswearImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.AnswearMediaId).Image);
         }
 
         #region Images
