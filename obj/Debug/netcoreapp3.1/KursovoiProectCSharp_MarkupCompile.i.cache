@@ -12,9 +12,9 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\App.xaml
 211283222455
 
-452122034979
+46-1150522376
 21614847337
 MainWindow.xaml;Resources\CommonStyles.xaml;Resources\MainWindowResources.xaml;Resources\SignLogInStyles.xaml;SignLogInWindow.xaml;View\AddCardPage.xaml;View\BroseDeckPage.xaml;View\BroseList.xaml;View\BrowseCards.xaml;View\CardSettingsPage.xaml;View\ChangeDeckTitle.xaml;View\DeckListPage.xaml;View\EditCardPage.xaml;View\MainPanelPage.xaml;View\MenuPage.xaml;View\NewDeck.xaml;View\Page1.xaml;View\RegisterPage.xaml;View\SavedLogPage.xaml;View\StartDeckLsitPage.xaml;View\TrainingCardPage.xaml;
 
-False
+True
 

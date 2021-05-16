@@ -34,7 +34,7 @@ namespace KursovoiProectCSharp.Model
         {
             get
             {
-                var c = DB.getCards(this) .Where(c => MemoryzationCategory.isTimeTrain(c.lastAnswearTime, c.Quality)).ToList().Count;
+                var c = DB.getCards(this) .Where(c => MemoryzationPresenter.isTimeTrain(c.lastAnswearTime, c.Quality)).ToList().Count;
                 return c;
             }
         }

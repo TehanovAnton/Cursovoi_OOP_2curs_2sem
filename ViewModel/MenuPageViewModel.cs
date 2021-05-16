@@ -4,21 +4,42 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using KursovoiProectCSharp.View;
+using KursovoiProectCSharp.Model;
 
 namespace KursovoiProectCSharp.ViewModel
 {
     public class MenuPageViewModel : NotifyPropertyChanged
     {
         private MainWindowViewModel mainWinVM;
-        
+        public MemoryzationPresenter Presenter { get; set; }
+
+        private bool changeIntervals;
+        public bool ChangeIntervals
+        {
+            get
+            {
+                return changeIntervals;
+            }
+            set
+            {
+                changeIntervals = value;
+                OnPropertyChanged("ChangeIntervals");
+            }
+        }
+
+
         public RelayCommand CloseMenu
         {
-            get { return new RelayCommand(
-                  obj =>
-                  {
-                      mainWinVM.AppPage = null;
-                  }
-              );}
+            get 
+            {
+                return new RelayCommand
+                (
+                    obj =>
+                    {
+                        mainWinVM.AppPage = null;
+                    }
+                );
+            }
         }
         public RelayCommand SetBroseDeckPage
         {
@@ -66,6 +87,8 @@ namespace KursovoiProectCSharp.ViewModel
         public MenuPageViewModel(MainWindowViewModel mainWinVM)
         {
             this.mainWinVM = mainWinVM;
+            this.Presenter = new MemoryzationPresenter();
+            this.ChangeIntervals = false;
         }
     }
 }

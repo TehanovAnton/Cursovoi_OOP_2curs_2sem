@@ -121,7 +121,7 @@ namespace KursovoiProectCSharp
         public static Card getTrainCard(int deckId)
         {
             var trainCards = context.Cards.Where(c => c.DeckId == deckId).ToList()
-                .Where(c => MemoryzationCategory.isTimeTrain(c.lastAnswearTime, c.Quality)).ToList();
+                .Where(c => MemoryzationPresenter.isTimeTrain(c.lastAnswearTime, c.Quality)).ToList();
 
             Card c = trainCards.Count != 0 ? trainCards[0] : null;
             return c;

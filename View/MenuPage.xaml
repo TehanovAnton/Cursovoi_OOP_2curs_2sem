@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:KursovoiProectCSharp.View"
+      xmlns:local="clr-namespace:KursovoiProectCSharp.View" xmlns:viewmodel="clr-namespace:KursovoiProectCSharp.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MenuPageViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="500"
       Title="MenuMainPanel">
@@ -29,19 +29,51 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Style="{DynamicResource ButtonBorder}">
+                    <Button Content="Browse Decks" Command="{Binding SetBroseDeckPage}"/>
+                </Border>
+
+                <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
+                    <Button Content="Edit user" Command="{Binding CloseMenu}"/>
+                </Border>
+
+                <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Label Content="Change Intervals: " Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding ChangeIntervals}"/>
+                    </StackPanel>
 
-                    <Border Grid.Row="0" Style="{DynamicResource ButtonBorder}">
-                        <Button Content="Browse Decks" Command="{Binding SetBroseDeckPage}"/>
-                    </Border>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
-                        <Button Content="Edit user" Command="{Binding CloseMenu}"/>
-                    </Border>
+                        <StackPanel Grid.Column="0">
+                            <Label Content="Again"/>
+                            <Label Content="Bad"/>
+                            <Label Content="Normal"/>
+                            <Label Content="Good"/>
+                            <Label Content="Excelдent"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding Presenter.AgainInterval}" Margin="0 0 0 10"/>
+                            <TextBox Text="{Binding Presenter.BadInterval}" Margin="0 0 0 10" IsEnabled="{Binding ChangeIntervals}"/>
+                            <TextBox Text="{Binding Presenter.NormalInterval}" Margin="0 0 0 10" IsEnabled="{Binding ChangeIntervals}"/>
+                            <TextBox Text="{Binding Presenter.GoodInterval}" Margin="0 0 0 10" IsEnabled="{Binding ChangeIntervals}"/>
+                            <TextBox Text="{Binding Presenter.ExcellentInterval}" Margin="0 0 0 10" IsEnabled="{Binding ChangeIntervals}"/>
+                        </StackPanel>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
