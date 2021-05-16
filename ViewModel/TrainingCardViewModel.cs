@@ -123,9 +123,9 @@ namespace KursovoiProectCSharp.ViewModel
                 EndTraining.Execute("");
             else
             {
-                QuestionText = DB.getCardQuestionText(CurrentCard.QuestionMediaId);
+                QuestionText = DB.getMedia(CurrentCard.QuestionMediaId).Text;
                 QuestionImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.QuestionMediaId).Image);
-                AnswearText = DB.getCardAnswearText(CurrentCard.AnswearMediaId);
+                AnswearText = DB.getMedia(CurrentCard.AnswearMediaId).Text;
                 AnswearImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.AnswearMediaId).Image);
             }
         }
@@ -180,8 +180,8 @@ namespace KursovoiProectCSharp.ViewModel
                                 EndTraining.Execute("");
                             else
                             {
-                                QuestionText = DB.getCardQuestionText(CurrentCard.QuestionMediaId);
-                                AnswearText = DB.getCardAnswearText(CurrentCard.AnswearMediaId);
+                                QuestionText = DB.getMedia(CurrentCard.QuestionMediaId).Text;
+                                AnswearText = DB.getMedia(CurrentCard.AnswearMediaId).Text;
                                 TrainingPage = null;
                             }
                         }
@@ -281,10 +281,10 @@ namespace KursovoiProectCSharp.ViewModel
 
             CurrentCard = DB.getTrainCard(deck.Id);
 
-            QuestionText = DB.getCardQuestionText(CurrentCard.QuestionMediaId);
+            QuestionText = DB.getMedia(CurrentCard.QuestionMediaId).Text;
             QuestionImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.QuestionMediaId).Image);
 
-            AnswearText = DB.getCardAnswearText(CurrentCard.AnswearMediaId);
+            AnswearText = DB.getMedia(CurrentCard.AnswearMediaId).Text;
             AnswearImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.AnswearMediaId).Image);
         }
 

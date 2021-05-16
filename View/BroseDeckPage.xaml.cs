@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KursovoiProectCSharp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,20 +15,15 @@ using System.Windows.Shapes;
 namespace KursovoiProectCSharp.View
 {
     /// <summary>
-    /// Логика взаимодействия для DeckListPage.xaml
+    /// Логика взаимодействия для BroseDeckPage.xaml
     /// </summary>
-    public partial class DeckListPage : Page
+    public partial class BroseDeckPage : Page
     {
-        private void ListBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            (this.DataContext as DeckListViewModel).KeyEventCommands.Execute(new object[] { sender, e });
-        }
-
-        public DeckListPage(MainWindowViewModel mainWinVM)
+        public BroseDeckPage(MainWindowViewModel mainWinVM)
         {
             InitializeComponent();
 
-            DataContext = new DeckListViewModel(mainWinVM);
+            DataContext = new BrowseDeckViewModel(mainWinVM, this.deckTitle);
         }
     }
 }

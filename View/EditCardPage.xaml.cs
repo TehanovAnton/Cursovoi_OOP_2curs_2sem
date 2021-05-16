@@ -26,5 +26,12 @@ namespace KursovoiProectCSharp.View
 
             DataContext = new EditCardViewModel(card, trainingCardVM);
         }
+
+        public EditCardPage(Card card, BrowseDeckViewModel browseDeckVM)
+        {
+            InitializeComponent();
+
+            DataContext = new EditCardViewModel(card, browseDeckVM);
+        }
     }
 }

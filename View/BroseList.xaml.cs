@@ -10,19 +10,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KursovoiProectCSharp.ViewModel;
 
-namespace KursovoiProectCSharp.ViewModel
+namespace KursovoiProectCSharp.View
 {
     /// <summary>
-    /// Логика взаимодействия для BrowseDeckPage.xaml
+    /// Логика взаимодействия для BroseList.xaml
     /// </summary>
-    public partial class BrowseDeckPage : Page
+    public partial class BroseList : Page
     {
-        public BrowseDeckPage(MainWindowViewModel mainWinVM)
+        public BroseList(BrowseDeckViewModel browseDeckVM)
         {
             InitializeComponent();
 
-            DataContext = new BrowseDeckViewModel(mainWinVM);
+            DataContext = browseDeckVM;
         }
     }
 }

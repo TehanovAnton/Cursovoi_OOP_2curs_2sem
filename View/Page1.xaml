@@ -8,21 +8,44 @@
       Height="auto" Width="auto"
       Title="Page1" Background="White">
 
-    <ScrollViewer>
-        <ListBox BorderBrush="{x:Null}">
-            <Border BorderBrush="Black" BorderThickness="4 0 0 0">
-                <StackPanel>
-                    <TextBlock Text="EnglishWords" FontSize="20" FontWeight="Bold"/>
-                    <TextBlock Text="0" FontSize="15" FontWeight="Bold"/>
-                </StackPanel>
-            </Border>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <Border BorderBrush="Black" BorderThickness="4 0 0 0">
-                <StackPanel>
-                    <TextBlock Text="EnglishWords" FontSize="20" FontWeight="Bold"/>
-                    <TextBlock Text="0" FontSize="15" FontWeight="Bold"/>
-                </StackPanel>
-            </Border>
-        </ListBox>
-    </ScrollViewer>
+        <!--Question-->
+        <Grid Grid.Column="0">
+            <GroupBox Grid.Row="0" Header="Question">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Hellow" Margin="4 4 4 4"/>
+
+                    <Image Grid.Row="1"  Source="C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\FindIcon.jpg">
+                    </Image>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <!--Answear-->
+        <Grid Grid.Column="1">
+            <GroupBox Grid.Row="0" Header="Answear">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Hello" Margin="4 4 4 4"/>
+
+                    <Image Grid.Row="1"  Source="C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\Images\FindIcon.jpg">
+                    </Image>
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
 </Page>

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using KursovoiProectCSharp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Windows.Media.Imaging;
 
 namespace KursovoiProectCSharp.Model
 {
@@ -16,5 +18,36 @@ namespace KursovoiProectCSharp.Model
 
         [ForeignKey("DeckId")]
         public Deck Deck { get; set; }
+        //----------------------------
+
+        public string QuestionText
+        {
+            get
+            {
+                return DB.getMedia(QuestionMediaId).Text;
+            }
+        }
+        public string AnswearText
+        {
+            get
+            {
+                return DB.getMedia(AnswearMediaId).Text;
+            }
+        }
+
+        public BitmapImage QuestionImage
+        {
+            get
+            {
+                return EditCardViewModel.ToImage(DB.getMedia(QuestionMediaId).Image);
+            }
+        }
+        public BitmapImage AnswearImage
+        {
+            get
+            {
+                return EditCardViewModel.ToImage(DB.getMedia(AnswearMediaId).Image);
+            }
+        }
     }
 }

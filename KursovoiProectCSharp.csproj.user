@@ -7,6 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\BroseDeckPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\BroseList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\BrowseCards.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\CardSettingsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,9 +32,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AddCardPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\BrowseDeckPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\DeckListPage.xaml.cs">
@@ -60,6 +66,15 @@
     <Page Update="Resources\SignLogInStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\BroseDeckPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\BroseList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\BrowseCards.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\CardSettingsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -76,9 +91,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AddCardPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\BrowseDeckPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DeckListPage.xaml">

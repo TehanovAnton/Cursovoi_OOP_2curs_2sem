@@ -1,7 +1,9 @@
 ﻿using KursovoiProectCSharp.Model;
+using KursovoiProectCSharp.View;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows.Media.Imaging;
 
@@ -10,6 +12,7 @@ namespace KursovoiProectCSharp.ViewModel
     public class EditCardViewModel : NotifyPropertyChanged
     {
         private TrainingCardViewModel trainingCardVM;
+        private BrowseDeckViewModel browseDeckCardVM;
 
         private Card card;
         public Card Card
@@ -100,12 +103,17 @@ namespace KursovoiProectCSharp.ViewModel
                                 a.Image = RegisterViewModel.getImageBytes(AnswearImage);
                             DB.context.SaveChanges();
 
-                            trainingCardVM.QuestionText = questionText;
-                            trainingCardVM.AnswearText = answearText;
-                            trainingCardVM.QuestionImage = EditCardViewModel.ToImage(q.Image);
-                            trainingCardVM.AnswearImage = EditCardViewModel.ToImage(a.Image);
+                            if (trainingCardVM != null)
+                            {
+                                trainingCardVM.QuestionText = questionText;
+                                trainingCardVM.AnswearText = answearText;
+                                trainingCardVM.QuestionImage = EditCardViewModel.ToImage(q.Image);
+                                trainingCardVM.AnswearImage = EditCardViewModel.ToImage(a.Image);
 
-                            trainingCardVM.TrainingPage = null;
+                                trainingCardVM.TrainingPage = null;
+                            }
+                            else
+                                browseDeckCardVM.Items = new BroseList(browseDeckCardVM);
                         }
                     );
             }
@@ -117,7 +125,10 @@ namespace KursovoiProectCSharp.ViewModel
                 return new RelayCommand(
                         obj =>
                         {
-                            trainingCardVM.TrainingPage = null;
+                            if (trainingCardVM != null)
+                                trainingCardVM.TrainingPage = null;
+                            else
+                                browseDeckCardVM.Items = null;
                         }
                     );
             }
@@ -163,30 +174,46 @@ namespace KursovoiProectCSharp.ViewModel
             }
         }
 
+
         public EditCardViewModel(Card card, TrainingCardViewModel trainingCardVM)
         {
             Card = card;
             this.trainingCardVM = trainingCardVM;
 
-            QuestionText = DB.getCardQuestionText(Card.QuestionMediaId);
+            QuestionText = DB.getMedia(Card.QuestionMediaId).Text;
             QuestionImage = ToImage(DB.getMedia(card.QuestionMediaId).Image);            
 
 
-            AnswearText = DB.getCardAnswearText(Card.AnswearMediaId);
+            AnswearText = DB.getMedia(Card.AnswearMediaId).Text;
             AnswearImage = ToImage(DB.getMedia(card.AnswearMediaId).Image);           
+        }
+        public EditCardViewModel(Card card, BrowseDeckViewModel browseDeckCardVM)
+        {
+            Card = card;
+            this.browseDeckCardVM = browseDeckCardVM;
+
+            QuestionText = DB.getMedia(Card.QuestionMediaId).Text;
+            QuestionImage = ToImage(DB.getMedia(card.QuestionMediaId).Image);
+
+
+            AnswearText = DB.getMedia(Card.AnswearMediaId).Text;
+            AnswearImage = ToImage(DB.getMedia(card.AnswearMediaId).Image);
         }
 
         public static BitmapImage ToImage(byte[] array)
         {
-            using (var ms = new System.IO.MemoryStream(array))
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.CacheOption = BitmapCacheOption.OnLoad; // here
-                image.StreamSource = ms;
-                image.EndInit();
-                return image;
-            }
+            if (array != null)
+                using (var ms = new MemoryStream(array))
+                {
+                    var image = new BitmapImage();
+                    image.BeginInit();
+                    image.CacheOption = BitmapCacheOption.OnLoad; // here
+                    image.StreamSource = ms;
+                    image.EndInit();
+                    return image;
+                }
+            else
+                return new BitmapImage();
         }
     }
 }

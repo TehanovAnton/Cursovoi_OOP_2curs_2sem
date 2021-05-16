@@ -27,7 +27,7 @@ namespace KursovoiProectCSharp.ViewModel
                 return new RelayCommand(
                 obj =>
                 {
-                    mainWinVM.AppPage = new BrowseDeckPage(mainWinVM);
+                    mainWinVM.AppPage = new BroseDeckPage(mainWinVM);
                 }
             );
             }

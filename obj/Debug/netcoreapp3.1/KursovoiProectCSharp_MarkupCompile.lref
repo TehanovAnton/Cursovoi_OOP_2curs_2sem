@@ -3,7 +3,6 @@ FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2с
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\MainWindow.xaml;;
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\SignLogInWindow.xaml;;
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\AddCardPage.xaml;;
-FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\BrowseDeckPage.xaml;;
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\CardSettingsPage.xaml;;
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\ChangeDeckTitle.xaml;;
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\DeckListPage.xaml;;
@@ -16,4 +15,7 @@ FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2с
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\SavedLogPage.xaml;;
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\StartDeckLsitPage.xaml;;
 FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\TrainingCardPage.xaml;;
+FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\BroseDeckPage.xaml;;
+FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\BroseList.xaml;;
+FC:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\View\BrowseCards.xaml;;
 

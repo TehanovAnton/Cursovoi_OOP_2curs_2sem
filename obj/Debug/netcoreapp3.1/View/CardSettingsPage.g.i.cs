@@ -53,7 +53,7 @@ namespace KursovoiProectCSharp.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KursovoiProectCSharp;V1.0.0.0;component/view/cardsettingspage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KursovoiProectCSharp;component/view/cardsettingspage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\CardSettingsPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

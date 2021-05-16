@@ -4,6 +4,7 @@ using System.Text;
 using KursovoiProectCSharp.Model;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 
 namespace KursovoiProectCSharp
 {
@@ -86,6 +87,11 @@ namespace KursovoiProectCSharp
         {
             return context.Cards.Where(c => c.DeckId == deckId).ToList().Count;
         }
+        public static ObservableCollection<Deck> FindDeck_SimilarTitle(string title, int userId)
+        {
+            var decks = title == "" ? new List<Deck>() : context.Decks.Where(d => d.Title.StartsWith(title) && d.UserId == userId).ToList();
+            return new ObservableCollection<Deck>(decks);
+        }
 
 
         public static void addCard(Card card)
@@ -95,7 +101,10 @@ namespace KursovoiProectCSharp
         }
         public static List<Card> getCards(Deck deck)
         {
-            return context.Cards.Where(c => c.DeckId == deck.Id).ToList();
+            if (deck != null)
+                return context.Cards.Where(c => c.DeckId == deck.Id).ToList();
+            else
+                return new List<Card>();
         }
         public static void removeCard(Card card)
         {
@@ -117,17 +126,7 @@ namespace KursovoiProectCSharp
         {
             card.Quality = quality;
             context.SaveChanges();
-        }
-        public static string getCardQuestionText(int questionId)
-        {
-            var t = context.Medias.First(m => m.Id == questionId && m.Type == MediaType.Question).Text;
-            return t;
-        }
-        public static string getCardAnswearText(int answearId)
-        {
-            var t = context.Medias.First(m => m.Id == answearId && m.Type == MediaType.Answear).Text;
-            return t;
-        }
+        }        
         public static Media getMedia(int mediaId)
         {
             var media = context.Medias.First(m => m.Id == mediaId);

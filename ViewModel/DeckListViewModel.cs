@@ -54,7 +54,6 @@ namespace KursovoiProectCSharp.View
               );
             }
         }
-
         public RelayCommand GoCardTraining
         {
             get
@@ -68,7 +67,6 @@ namespace KursovoiProectCSharp.View
               );
             }
         }
-
         public RelayCommand KeyEventCommands
         {
             get

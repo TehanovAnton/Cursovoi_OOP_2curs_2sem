@@ -86,13 +86,6 @@
                                                 Text="{Binding Path=UserInfo.Mail}"/>
                                         </StackPanel>
                                     </StackPanel>
-
-                                    <!--<Border BorderBrush="Black" BorderThickness="4 0 0 0">
-                                        <StackPanel Margin="4 0 0 0">
-                                            <TextBlock Text="{Binding Path=UserInfo.Fio}" FontSize="20" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding Path=UserInfo.Mail}" FontSize="15" FontWeight="Bold"/>
-                                        </StackPanel>
-                                    </Border>-->
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
