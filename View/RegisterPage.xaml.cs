@@ -23,13 +23,5 @@ namespace KursovoiProectCSharp.View
 
             DataContext = new RegisterViewModel(mainWinVM);
         }
-        
-        public RegisterPage(User _user)
-        {
-            InitializeComponent();
-
-            DataContext = new RegisterViewModel(_user);
-        }
-
     }
 }

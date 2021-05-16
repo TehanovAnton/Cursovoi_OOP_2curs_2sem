@@ -161,27 +161,15 @@ namespace KursovoiProectCSharp.ViewModel
         }
 
         public RegisterViewModel(MainWindowViewModel mainWinVM)
-        {
-            _Image = MainWindowViewModel.ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\лабораторные\решения\LabWork10_ado\images\Add.png");
-            this.mainWinVM = mainWinVM;            
+        {            
+            this.mainWinVM = mainWinVM;
 
+            _Image = MainWindowViewModel.ImageBMP(@"C:\Users\Anton\source\repos\pacei_NV_OOTP\лабораторные\решения\LabWork10_ado\images\Add.png");
             _Password = "a";
             _NickName = "a";
             _Fio = "a";
             _Mail = ".com";
             _BirthDay = new DateTime(2002, 6, 6);
-        }
-        public RegisterViewModel(User _user)
-        {
-            this.mainWinVM = new MainWindowViewModel { user = _user };
-
-            _Password = _user.Password;
-            _NickName = _user.NickName;
-
-            var info = DB.getUserInfo(_user.Id);
-            _Fio = info.Fio;
-            _Mail = info.Mail;
-            _BirthDay = info.BirthDate;
         }
 
         public static byte[] getImageBytes(BitmapImage image)

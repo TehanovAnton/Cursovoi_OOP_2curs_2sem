@@ -53,14 +53,14 @@ namespace KursovoiProectCSharp.ViewModel
             );
             }
         }
-        public RelayCommand EditUser
+        public RelayCommand SetEditUserPage
         {
             get
             {
                 return new RelayCommand(
                         obj =>
                         {
-                            mainWinVM.AppPage = new RegisterPage(mainWinVM.user);
+                            mainWinVM.AppPage = new EditUserPage(mainWinVM);
                         }
                     );
             }

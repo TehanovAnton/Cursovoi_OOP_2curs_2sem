@@ -25,6 +25,9 @@
     <Compile Update="View\EditCardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\EditUserPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\MainPanelPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -38,9 +41,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\MenuPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\_NewDeck.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Page1.xaml.cs">
@@ -82,6 +82,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\EditCardPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditUserPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainPanelPage.xaml">

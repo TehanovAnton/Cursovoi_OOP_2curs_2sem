@@ -58,6 +58,20 @@ namespace KursovoiProectCSharp
                 OnPropertyChanged("MainPanelPage");
             }
         }
+
+        private Page editUserPage;
+        public Page EditUserPage
+        {
+            get
+            {
+                return editUserPage;
+            }
+            set
+            {
+                editUserPage = value;
+                OnPropertyChanged("EditUserPage");
+            }
+        }
         #endregion
 
 
@@ -97,7 +111,7 @@ namespace KursovoiProectCSharp
                         }
                     );
             }
-        }
+        }        
         #endregion
 
 

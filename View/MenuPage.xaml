@@ -40,7 +40,7 @@
                 </Border>
 
                 <Border Grid.Row="1" Style="{DynamicResource ButtonBorder}">
-                    <Button Content="Edit user" Command="{Binding CloseMenu}"/>
+                    <Button Content="Edit user" Command="{Binding SetEditUserPage}"/>
                 </Border>
 
                 <Grid Grid.Row="2">

@@ -5,6 +5,7 @@ using KursovoiProectCSharp.Model;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
+using KursovoiProectCSharp.ViewModel;
 
 namespace KursovoiProectCSharp
 {
@@ -56,6 +57,26 @@ namespace KursovoiProectCSharp
         public static void saveUserInfo(UserInfo userInfo)
         {
             context.UsersInfo.Add(userInfo);
+            context.SaveChanges();
+        }
+        public static void changeUserInfo(int userId, UserInfo newUserInfo)
+        {
+            var ui = context.UsersInfo.First(i => i.UserId == userId);
+
+            ui.Fio = newUserInfo.Fio;
+            ui.Mail = newUserInfo.Mail;
+            ui.BirthDate = newUserInfo.BirthDate;
+            ui.ImageBytes = newUserInfo.ImageBytes;
+
+            context.SaveChanges();
+        }
+        public static void changeUser(int userId, User newUser)
+        {
+            var u = context.Users.First(us => us.Id == userId);
+
+            u.Password = newUser.Password;
+            u.NickName = newUser.NickName;
+
             context.SaveChanges();
         }
 

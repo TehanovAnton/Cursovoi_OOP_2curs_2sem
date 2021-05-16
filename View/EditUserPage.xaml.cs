@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KursovoiProectCSharp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,13 +15,15 @@ using System.Windows.Shapes;
 namespace KursovoiProectCSharp.View
 {
     /// <summary>
-    /// Логика взаимодействия для NewDeck.xaml
+    /// Логика взаимодействия для EditUserPage.xaml
     /// </summary>
-    public partial class NewDeck : Page
+    public partial class EditUserPage : Page
     {
-        public NewDeck()
+        public EditUserPage(MainWindowViewModel mainWindowVM)
         {
             InitializeComponent();
+
+            DataContext = new EditUserViewModel(mainWindowVM);
         }
     }
 }
