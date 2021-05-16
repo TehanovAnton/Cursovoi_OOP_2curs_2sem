@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
 
 namespace KursovoiProectCSharp.Model
@@ -14,19 +15,28 @@ namespace KursovoiProectCSharp.Model
         public int UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
-        
-        public int Count
-        {
-            get
-            {
-                return DB.getDeckCardCount(Id);
-            }
-        }
 
 
         public Deck()
         {
             Cards = new List<Card>();
+        }
+        //--------------
+
+        public int TotalCount
+        {
+            get
+            {
+                return DB.getDeckTotalCardCount(Id);
+            }
+        }
+        public int TrainingCount
+        {
+            get
+            {
+                var c = DB.getCards(this) .Where(c => MemoryzationCategory.isTimeTrain(c.lastAnswearTime, c.Quality)).ToList().Count;
+                return c;
+            }
         }
     }
 }

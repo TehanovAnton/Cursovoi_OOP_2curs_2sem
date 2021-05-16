@@ -27,7 +27,28 @@
                         <Border BorderBrush="Black" BorderThickness="4 0 0 0">
                             <StackPanel Margin="4 0 0 0">
                                 <TextBlock Text="{Binding Path=Title}" FontSize="20" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Path=Count}" FontSize="15" FontWeight="Bold"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--Total count-->
+                                    <StackPanel Grid.Column="0" 
+                                                Orientation="Horizontal" 
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center">
+                                        <Label Content="Total Cards: "/>
+                                        <TextBlock Text="{Binding Path=TotalCount}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <!--Training count-->
+                                    <StackPanel Grid.Column="1" 
+                                                Orientation="Horizontal"
+                                                HorizontalAlignment="Left" 
+                                                VerticalAlignment="Center">
+                                        <Label Content="Training Cards: "/>
+                                        <TextBlock Text="{Binding Path=TrainingCount}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Grid>                               
                             </StackPanel>
                         </Border>
                         <!--<StackPanel>

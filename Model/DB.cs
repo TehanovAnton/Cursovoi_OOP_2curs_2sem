@@ -83,7 +83,11 @@ namespace KursovoiProectCSharp
             DB.context.Decks.Remove(deck);
             DB.context.SaveChanges();
         }
-        public static int getDeckCardCount(int deckId)
+        public static int getDeckTotalCardCount(int deckId)
+        {
+            return context.Cards.Where(c => c.DeckId == deckId).ToList().Count;
+        }
+        public static int getDeckTrainingCardCount(int deckId)
         {
             return context.Cards.Where(c => c.DeckId == deckId).ToList().Count;
         }

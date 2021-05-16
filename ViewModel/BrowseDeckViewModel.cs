@@ -78,22 +78,6 @@ namespace KursovoiProectCSharp.ViewModel
         }
 
 
-        //public RelayCommand Refresh
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand(
-        //          obj =>
-        //          {
-
-        //              Decks.Clear();
-        //              foreach (var d in DB.getDecks(mainWinVM.user.Id))
-        //                  Decks.Add(d);
-        //          }
-        //      );
-        //    }
-        //}
-
         public RelayCommand Back
         {
             get
