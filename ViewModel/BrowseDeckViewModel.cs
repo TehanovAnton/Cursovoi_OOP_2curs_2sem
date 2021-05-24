@@ -101,6 +101,7 @@ namespace KursovoiProectCSharp.ViewModel
                             {
                                 var ds = DB.FindDeck_SimilarTitle(TextBox.Text, mainWinVM.user.Id);
                                 Decks.Clear();
+                                Items = new BroseList(this);
                                 foreach (Deck d in ds)
                                     Decks.Add(d);
                             }
@@ -118,6 +119,7 @@ namespace KursovoiProectCSharp.ViewModel
                             if (SelectedDeck != null)
                             {
                                 var cs = DB.getCards(SelectedDeck);
+                                Cards.Clear();
                                 foreach (Card c in cs)
                                     Cards.Add(c);
 

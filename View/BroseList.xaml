@@ -23,7 +23,7 @@
                     <Border BorderBrush="Black" BorderThickness="4 0 0 0">
                         <StackPanel Margin="4 0 0 0">
                             <TextBlock Text="{Binding Path=Title}" FontSize="20" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding Path=Count}" FontSize="15" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Path=TotalCount}" FontSize="15" FontWeight="Bold"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>

@@ -94,6 +94,16 @@ namespace KursovoiProectCSharp.View
                                 {
                                     GoCardTraining.Execute("");
                                 }
+                                else if (e.Key == Key.D)
+                                {
+                                    //delete deck
+                                    DB.removeDeck(SelectedDeck);
+                                }
+                                else if (e.Key == Key.E)
+                                {
+                                    //edit deeck
+                                    mainWinVM.DeckListPage = new EditDeckPage(mainWinVM, SelectedDeck);
+                                }
                             }
                         }
                     );

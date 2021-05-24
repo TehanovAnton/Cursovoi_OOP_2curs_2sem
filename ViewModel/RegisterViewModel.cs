@@ -174,8 +174,16 @@ namespace KursovoiProectCSharp.ViewModel
 
         public static byte[] getImageBytes(BitmapImage image)
         {
-            Uri uri = image.UriSource;
-            return File.ReadAllBytes(uri.OriginalString);
+
+            byte[] buffer = null;
+
+            if (image != null && image.UriSource != null)
+            {
+                Uri uri = image.UriSource;
+                buffer = File.ReadAllBytes(uri.OriginalString);
+            }
+
+            return buffer;
         }
     }
 }

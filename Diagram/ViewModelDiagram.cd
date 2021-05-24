@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KursovoiProectCSharp.ViewModel.AddCardViewModel">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQAAIAAACAAAAADAAQCAAAEAmACAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\AddCardViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.BrowseDeckViewModel">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAIAACAAIACQCAAQgAAAEIAACIAAAAgAAAIAAAAAA=</HashCode>
+      <FileName>ViewModel\BrowseDeckViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.EditCardViewModel">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAQQAQAAAAgQCAAIUAkADCAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\EditCardViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.EditUserViewModel">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAIAAAEAAgAAAAgkAEQAAAAQCAAAAAhAAAAU=</HashCode>
+      <FileName>ViewModel\EditUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.MainPanelViewModel">
+    <Position X="3.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAABAAACAAAAIAAAAAQAAAAEAAAAAAQAAAgE=</HashCode>
+      <FileName>ViewModel\MainPanelViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.MenuPageViewModel">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAABAAQCAAAAAgAAAAAABAAAAoAAAAIAAAAA=</HashCode>
+      <FileName>ViewModel\MenuPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.NewDeckViewModel">
+    <Position X="6.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAABAAICAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\NewDeckViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.RegisterViewModel">
+    <Position X="8.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAIAAAECAgAAAAg0AEQABAAQAAAAAAhAAAAU=</HashCode>
+      <FileName>ViewModel\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.SavedLogViewModel">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAAACAAAABAAAAAAAAAAAAAAAAAAAAAAIAAAACAAIA=</HashCode>
+      <FileName>ViewModel\SavedLogViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.SignLogInViewModel">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAAESAAABBAAEAQAAAAAgAAAQEBAAABAIEAAgCBAAA=</HashCode>
+      <FileName>ViewModel\SignLogInViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.ViewModel.TrainingCardViewModel">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAhwAYCAgQCAAIEQkCAKEEAJAhBAAAQAAAE=</HashCode>
+      <FileName>ViewModel\TrainingCardViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursovoiProectCSharp.RelayCommand">
+    <Position X="12.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KursovoiProectCSharp.NotifyPropertyChanged">
+    <Position X="14.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NotifyPropertyChanged.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KursovoiProectCSharp.MainWindowViewModel">
+    <Position X="16.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACgAAoAAAAKACAACIAAAAAAAAACAAAAAgAAAAgAQA=</HashCode>
+      <FileName>ViewModel\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

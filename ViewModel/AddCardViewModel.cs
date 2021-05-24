@@ -119,7 +119,8 @@ namespace KursovoiProectCSharp.ViewModel
             {
                 return new RelayCommand(
                         obj =>
-                        {
+                        {                          
+
                             var q = new Media { Text = _Question, Image = RegisterViewModel.getImageBytes(QuestionImage), Type = MediaType.Question };
                             var a = new Media { Text = _Question, Image = RegisterViewModel.getImageBytes(AnswearImage), Type = MediaType.Answear };
                             DB.context.Medias.AddRange(q, a);

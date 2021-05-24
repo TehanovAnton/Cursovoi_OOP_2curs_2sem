@@ -53,7 +53,7 @@
                                     <TextBlock Grid.Row="0" Text="{Binding QuestionText}" Margin="4 4 4 4"/>
 
                                     <Image Grid.Row="1" 
-                                        Source="{Binding QuestionImage}">
+                                        Source="{Binding AnswearImage}">
                                     </Image>
                                 </Grid>
                             </GroupBox>

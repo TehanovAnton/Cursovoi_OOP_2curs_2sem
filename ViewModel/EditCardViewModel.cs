@@ -113,7 +113,11 @@ namespace KursovoiProectCSharp.ViewModel
                                 trainingCardVM.TrainingPage = null;
                             }
                             else
+                            {
+                                browseDeckCardVM.Decks.Clear();
+                                browseDeckCardVM.TE
                                 browseDeckCardVM.Items = new BroseList(browseDeckCardVM);
+                            }
                         }
                     );
             }
