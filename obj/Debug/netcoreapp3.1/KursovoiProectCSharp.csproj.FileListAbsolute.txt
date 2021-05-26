@@ -139,3 +139,7 @@ C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2с�
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\EditUserPage.baml
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\EditDeckPage.g.cs
 C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\EditDeckPage.baml
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\HidenAnswerPage.g.cs
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\ShownAnswerPage.g.cs
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\HidenAnswerPage.baml
+C:\Users\Anton\source\repos\pacei_NV_OOTP\Курсовой ООП 2курс-2семестр\KursovoiProectCSharp\obj\Debug\netcoreapp3.1\View\ShownAnswerPage.baml

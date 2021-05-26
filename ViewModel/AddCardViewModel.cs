@@ -122,7 +122,7 @@ namespace KursovoiProectCSharp.ViewModel
                         {                          
 
                             var q = new Media { Text = _Question, Image = RegisterViewModel.getImageBytes(QuestionImage), Type = MediaType.Question };
-                            var a = new Media { Text = _Question, Image = RegisterViewModel.getImageBytes(AnswearImage), Type = MediaType.Answear };
+                            var a = new Media { Text = _Answear, Image = RegisterViewModel.getImageBytes(AnswearImage), Type = MediaType.Answear };
                             DB.context.Medias.AddRange(q, a);
                             DB.context.SaveChanges();
 

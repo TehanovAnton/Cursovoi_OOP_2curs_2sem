@@ -61,7 +61,7 @@ namespace KursovoiProectCSharp.View
                 return new RelayCommand(
                   obj =>
                   {
-                      if (DB.getTrainCard(SelectedDeck.Id) != null)
+                      if (SelectedDeck != null && DB.getTrainCard(SelectedDeck.Id) != null)
                         mainWinVM.AppPage = new TrainingCardPage(SelectedDeck, mainWinVM);
                   }
               );
@@ -83,6 +83,7 @@ namespace KursovoiProectCSharp.View
                                 if (e.Key == Key.Delete)
                                 {
                                     DB.removeDeck(SelectedDeck);
+                                    Refresh.Execute("");
                                 }
                                 //AddCard
                                 else if (e.Key == Key.A)
@@ -93,11 +94,6 @@ namespace KursovoiProectCSharp.View
                                 else if (e.Key == Key.T)
                                 {
                                     GoCardTraining.Execute("");
-                                }
-                                else if (e.Key == Key.D)
-                                {
-                                    //delete deck
-                                    DB.removeDeck(SelectedDeck);
                                 }
                                 else if (e.Key == Key.E)
                                 {

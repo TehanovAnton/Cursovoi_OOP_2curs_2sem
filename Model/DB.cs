@@ -51,8 +51,11 @@ namespace KursovoiProectCSharp
 
         public static void saveLog(bool SavePassword, User user)
         {
-            user.SavedLog = SavePassword;
-            context.SaveChanges();
+            if (!user.SavedLog)
+            {
+                user.SavedLog = SavePassword;
+                context.SaveChanges();
+            }
         }
         public static void saveUserInfo(UserInfo userInfo)
         {
@@ -100,8 +103,11 @@ namespace KursovoiProectCSharp
             //удалить все катрточки
             foreach (Card c in getCards(deck))
                 context.Cards.Remove(c);
+
             //удалить колоду
-            DB.context.Decks.Remove(deck);
+            if (deck != null && DB.context.Decks.Where(d => d.Title == deck.Title).ToList().Count != 0)
+                DB.context.Decks.Remove(deck);
+            
             DB.context.SaveChanges();
         }
         public static int getDeckTotalCardCount(int deckId)

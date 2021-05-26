@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:KursovoiProectCSharp.View"
+      xmlns:local="clr-namespace:KursovoiProectCSharp.View" xmlns:viewmodel="clr-namespace:KursovoiProectCSharp.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:TrainingCardViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="500"
       Title="TrainingCardPage"
@@ -43,7 +43,10 @@
                 </GroupBox>
             </Grid>
 
-            <!--Answear-->
+            <Grid Grid.Row="2">
+                <Frame NavigationUIVisibility="Hidden" Content="{Binding Footer}"/>
+            </Grid>
+            <!--Answear--><!--
             <Grid Grid.Row="2">
                 <GroupBox Header="Answear">
                     <Grid>
@@ -61,7 +64,7 @@
                 </GroupBox>
             </Grid>
 
-            <!--result buttons-->
+            --><!--result buttons--><!--
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -90,7 +93,7 @@
                 <Border Grid.Column="4" Style="{DynamicResource ButtonBorder}">
                     <Button Content="Excellent" Command="{Binding Excellent}"/>
                 </Border>
-            </Grid>
+            </Grid>-->
         </Grid>
 
         <!--TrainingPage-->

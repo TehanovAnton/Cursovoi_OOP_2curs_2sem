@@ -27,6 +27,19 @@ namespace KursovoiProectCSharp.ViewModel
                 OnPropertyChanged("TrainingPage");
             }
         }
+        private Page footer;
+        public Page Footer
+        {
+            get
+            {
+                return footer;
+            }
+            set
+            {
+                footer = value;
+                OnPropertyChanged("Footer");
+            }
+        }
 
 
         private Deck deck;
@@ -128,9 +141,23 @@ namespace KursovoiProectCSharp.ViewModel
                 AnswearText = DB.getMedia(CurrentCard.AnswearMediaId).Text;
                 AnswearImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.AnswearMediaId).Image);
             }
+
+            Footer = new HidenAnswerPage(this);
         }
 
 
+        public RelayCommand SetShowenAnswerPage
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            Footer = new ShownAnswerPage(this);
+                        }
+                    );
+            }
+        }
         public RelayCommand EndTraining
         {
             get
@@ -286,6 +313,8 @@ namespace KursovoiProectCSharp.ViewModel
 
             AnswearText = DB.getMedia(CurrentCard.AnswearMediaId).Text;
             AnswearImage = EditCardViewModel.ToImage(DB.getMedia(CurrentCard.AnswearMediaId).Image);
+
+            Footer = new HidenAnswerPage(this);
         }
 
         #region Images

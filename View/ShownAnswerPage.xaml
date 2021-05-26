@@ -1,0 +1,67 @@
+﻿<Page x:Class="KursovoiProectCSharp.View.ShownAnswerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KursovoiProectCSharp.View" xmlns:viewmodel="clr-namespace:KursovoiProectCSharp.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:TrainingCardViewModel}"
+      mc:Ignorable="d" 
+      Height="auto" Width="auto"
+      Title="ShownAnswerPage" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Answear-->        
+        <Grid Grid.Row="0">
+            <GroupBox Header="Answear">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="{Binding AnswearText}" Margin="4 4 4 4"/>
+
+                    <Image Grid.Row="1" 
+                        Source="{Binding AnswearImage}">
+                    </Image>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+            
+        <!--result buttons-->        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Again" Command="{Binding Again}"/>
+            </Border>
+
+            <Border Grid.Column="1" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Bad" Command="{Binding Bad}"/>
+            </Border>
+
+            <Border Grid.Column="2" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Normal" Command="{Binding Normal}"/>
+            </Border>
+
+            <Border Grid.Column="3" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Good" Command="{Binding Good}"/>
+            </Border>
+
+            <Border Grid.Column="4" Style="{DynamicResource ButtonBorder}">
+                <Button Content="Excellent" Command="{Binding Excellent}"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

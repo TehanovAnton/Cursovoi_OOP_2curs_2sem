@@ -115,7 +115,6 @@ namespace KursovoiProectCSharp.ViewModel
                             else
                             {
                                 browseDeckCardVM.Decks.Clear();
-                                browseDeckCardVM.TE
                                 browseDeckCardVM.Items = new BroseList(browseDeckCardVM);
                             }
                         }

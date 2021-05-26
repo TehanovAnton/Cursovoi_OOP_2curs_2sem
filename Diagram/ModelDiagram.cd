@@ -1,71 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="KursovoiProectCSharp.Model.ApplicationContext" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4.25" Y="0.5" Width="1.5" />
+  <Class Name="KursovoiProectCSharp.Model.ApplicationContext" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAACAAAQgAAAAAIAAAAAAIgAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Model\ApplicationContext.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="KursovoiProectCSharp.Model.Card" Collapsed="true">
-    <Position X="6" Y="0.5" Width="1.5" />
+  <Class Name="KursovoiProectCSharp.Model.Card">
+    <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAGAAAAAAAAAABAgACAAAEAgAAAAAACAgBAAAAAAgA=</HashCode>
       <FileName>Model\Card.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KursovoiProectCSharp.Model.Deck" Collapsed="true">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+  <Class Name="KursovoiProectCSharp.Model.Deck">
+    <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAADAAAAAAAABEAAAAAAAAgIAAAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Deck.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KursovoiProectCSharp.Model.Media" Collapsed="true">
-    <Position X="4.25" Y="1.5" Width="1.5" />
+  <Class Name="KursovoiProectCSharp.Model.Media">
+    <Position X="19.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAQAACAAAAAA=</HashCode>
       <FileName>Model\Media.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KursovoiProectCSharp.Model.MemoryzationCategory" Collapsed="true">
-    <Position X="6" Y="1.5" Width="1.5" />
+  <Class Name="KursovoiProectCSharp.Model.MemoryzationCategory">
+    <Position X="23.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\MemoryzationCategory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KursovoiProectCSharp.Model.MemoryzationPresenter" Collapsed="true">
-    <Position X="7.75" Y="1.5" Width="1.5" />
+  <Class Name="KursovoiProectCSharp.Model.MemoryzationPresenter">
+    <Position X="21.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAgAAAQAAAEAAAAQAAAAAAAAAAAAAIAAACA=</HashCode>
       <FileName>Model\MemoryzationPresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KursovoiProectCSharp.Model.User" Collapsed="true">
-    <Position X="4.25" Y="2.5" Width="1.5" />
+  <Class Name="KursovoiProectCSharp.Model.User">
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAICAAAAAAAAAACAAAAAAAAAAAAAABECAAAAAAAAAAA=</HashCode>
       <FileName>Model\User.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KursovoiProectCSharp.Model.UserInfo" Collapsed="true">
-    <Position X="6" Y="2.5" Width="1.5" />
+  <Class Name="KursovoiProectCSharp.Model.UserInfo">
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAADAAAAACAAAACABAAAAAwAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Model\UserInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="KursovoiProectCSharp.Model.MediaType" Collapsed="true">
-    <Position X="4.25" Y="3.75" Width="1.5" />
+  <Enum Name="KursovoiProectCSharp.Model.MediaType">
+    <Position X="18" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAA=</HashCode>
       <FileName>Model\Media.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="KursovoiProectCSharp.Model.MemoryzationQuality" Collapsed="true">
-    <Position X="6" Y="3.75" Width="1.5" />
+  <Enum Name="KursovoiProectCSharp.Model.MemoryzationQuality">
+    <Position X="25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAAAAAAAAAAACAIAAAIAAAAAAAAAAE=</HashCode>
       <FileName>Model\MemoryzationCategory.cs</FileName>

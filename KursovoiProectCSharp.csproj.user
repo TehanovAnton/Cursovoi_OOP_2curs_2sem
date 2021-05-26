@@ -31,6 +31,9 @@
     <Compile Update="View\EditUserPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\HidenAnswerPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\MainPanelPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -50,6 +53,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\SavedLogPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ShownAnswerPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\StartDeckLsitPage.xaml.cs">
@@ -93,6 +99,9 @@
     <Page Update="View\EditUserPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\HidenAnswerPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\MainPanelPage.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -115,6 +124,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SavedLogPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ShownAnswerPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StartDeckLsitPage.xaml">
